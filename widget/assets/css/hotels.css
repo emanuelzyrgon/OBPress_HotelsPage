@@ -1,0 +1,312 @@
+body {
+    background-color: #F6F7F9;
+}
+
+.obpress-chain-results-hotels-page {
+    max-width: 1076px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.obpress-hotels-holder {
+    display: flex;
+    flex-direction: column;
+}
+
+.obpress-hotels-title-holder {
+    display: flex;
+    align-items: center;
+    margin-bottom: 23px;
+}
+
+.obpress-hotels-title {
+    display: flex;
+    font-size: 20px;
+    color: #000000;
+    font-weight: bold;
+    line-height: 24px;
+    margin-right: 22px;
+    min-width: fit-content;
+    flex-direction: column;
+}
+
+.obpress-hotels-city-name {
+    min-width: fit-content;
+    font-weight: 400;
+}
+
+.obpress-hotels-title-holder hr {
+    width: 100%;
+    height: 2px;
+    background-color: #D9DADC;
+    opacity: 1;
+}
+
+.obpress-hotels-results-roomrate {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-bottom: 38px;
+}
+
+.obpress-hotels-results-roomrate:last-child {
+    margin-bottom: 58px;
+}
+
+.obpress-hotels-results-hotel-image {
+    position: relative;
+}
+
+.obpress-hotels-results-hotel-image img {
+    width: 669px;
+    height: 393px;
+    object-fit: cover;
+}
+
+.obpress-chain-results-hotel-info {
+    width: 466px;
+    max-height: 352px;
+    background-color: #fff;
+    position: absolute;
+    right: 0px;
+    box-shadow: 0px 3px 15px #00000029;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 21px 21px 21px;
+}
+
+.hotel_stars {
+    display: flex;
+    margin-bottom: 5px;
+}
+
+.hotel_star, .hotel_star_outline {
+    vertical-align: top;
+    margin-right: 5px;
+}
+
+.hotel_star g path {
+    fill: #fdba01;
+    stroke: #fdba01;
+}
+
+.hotel_star_outline g g .c {
+    fill: #fff;
+    stroke: #fdba01;
+}
+
+.obpress-hotels-name {
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 24px;
+    color: #000000;
+    margin-bottom: 8px;
+}
+
+.obpress-hotels-name:hover {
+    color: #000000;
+}
+
+.obpress-hotels-location {
+    font-size: 12px;
+    font-weight: 400;
+    color: #000000;
+    line-height: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #E6E6E6;
+    margin-bottom: 11px;
+}
+
+.obpress-hotel-text {
+    font-size: 14px;
+}
+
+.obpress-hotels-mobile {
+    display: none;
+}
+
+.obpress-hotels-button-text-holder {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.obpress-hotels-button {
+    padding: 11px 10px;
+    background-color: #000000;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    border-width: 0px;
+    text-decoration: none;
+}
+
+.obpress-hotels-button:hover {
+    color: #fff;
+}
+
+.obpress-search-header-hotels {
+    width: 100%;
+    height: 197px;
+    text-align: center;
+    padding-top: 50px;
+}
+
+.obpress-search-title {
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 1.23;
+    letter-spacing: normal;
+    text-align: center;
+    color: #000000;
+    margin-bottom: 20px;
+}
+
+#search-input {
+    font-size: 14px;
+    min-width: 500px;
+    height: 42px;
+    border-radius: 2px;
+    border: solid 1px #8c99af;
+    background-color: #fff;
+    bottom: 50px;
+    padding: 10px 13px 10px 13px;
+    background-image: url('../icons/icon_Search.svg');
+    background-repeat: no-repeat;
+    background-position-x: right;
+    background-position-y: center;
+    background-origin: content-box;
+}
+
+.obpress-hotels-no-results {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    text-align: center;
+    flex-direction: column;
+}
+
+.s-none {
+    display: none;
+}
+
+.obpress-hotels-no-results-img {
+    height: 128px;
+    fill: #C2CBDA;
+    width: 128px;
+}
+
+.obpress-hotels-no-results-text {
+    margin-top: 30px;
+    margin-bottom: 0px;
+    color: #000000;
+    font-size: 16px;
+}
+
+.obpress-hotels-see-more{
+    font-size: 12px;
+    font-weight: 400;
+    color: #4B8CF4;
+    line-height: 15px;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.obpress-hotels-see-more:hover {
+    color: #4B8CF4;
+}
+
+@media (max-width: 1279px) {
+
+    #search-input {
+        min-width: 340px;
+    }
+
+    .obpress-search-header-hotels {
+        padding-top: 25px;
+        height: 137px;
+    }
+
+    .obpress-search-title {
+        margin-bottom: 10px;
+        font-size: 25px;
+    }
+
+    .obpress-hotels-title {
+        flex-direction: row;
+    }
+
+    .obpress-hotels-country-name {
+        margin-right: 5px;
+    }
+
+    .obpress-chain-results-hotels-page {
+        max-width: unset;
+    }
+
+    .obpress-hotels-results-roomrate {
+        position: static;
+        display: block;
+        margin-bottom: 27px;
+        margin-right: 20px;
+    }
+
+    .obpress-hotels-results-roomrate:last-child {
+        margin-bottom: 27px;
+        margin-right: 0px;
+    }
+
+    .obpress-hotels-results-hotel-image {
+        position: static;
+        width: 323px;
+        height: 227px;
+    }
+
+    .obpress-hotels-cards-holder {
+        display: flex;
+        overflow-x: scroll;
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+    }
+
+    .obpress-hotels-cards-holder::-webkit-scrollbar {
+        display: none;
+    }
+
+    .obpress-chain-results-hotel-info {
+        position: static;
+        right: unset;
+        width: 323px;
+        padding: 17px 22px 23.5px 22px;
+        min-height: 248px;
+        justify-content: space-between;
+    }
+
+    .obpress-hotels-results-hotel-image img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .hotel_stars {
+        margin-bottom: 9px;
+    }
+
+    .obpress-hotels-name {
+        font-size: 16px;
+    }
+
+    .obpress-hotel-text {
+        font-size: 12px;
+    }
+
+    .obpress-hotels-button {
+        padding: 11px 7px 11px 7px;
+        line-height: 18px;
+    }
+
+    .obpress-hotels-desktop {
+        display: none;
+    }
+
+    .obpress-hotels-mobile {
+        display: block;
+    }
+}
