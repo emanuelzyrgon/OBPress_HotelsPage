@@ -17,12 +17,12 @@ if (get_option('obpress_api_set') == true) {
 
 
 
-// require_once(WP_PLUGIN_DIR . '/OBPress_SpecialOffersList/plugin-update-checker-4.11/plugin-update-checker.php');
-// $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
-//     'https://github.com/LukaZyrgon/OBPress_SpecialOffersList',
-//     __FILE__,
-//     'OBPress_SpecialOffersList'
-// );
+require_once(WP_PLUGIN_DIR . '/OBPress_HotelsPage/plugin-update-checker-4.11/plugin-update-checker.php');
+$myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
+    'https://github.com/emanuelzyrgon/OBPress_HotelsPage',
+    __FILE__,
+    'OBPress_HotelsPage'
+);
 
-// // //Set the branch that contains the stable release.
-// $myUpdateChecker->setBranch('main');
+// //Set the branch that contains the stable release.
+$myUpdateChecker->setBranch('main');
