@@ -1,5 +1,5 @@
 body {
-    background-color: #F6F7F9;
+    background-color: #F6F7F9!important;
 }
 
 .obpress-chain-results-hotels-page {
@@ -11,6 +11,7 @@ body {
 .obpress-hotels-holder {
     display: flex;
     flex-direction: column;
+    background-color: #F6F7F9;
 }
 
 .obpress-hotels-title-holder {
@@ -25,7 +26,6 @@ body {
     color: #000000;
     font-weight: bold;
     line-height: 24px;
-    margin-right: 22px;
     min-width: fit-content;
     flex-direction: column;
 }
@@ -40,6 +40,7 @@ body {
     height: 2px;
     background-color: #D9DADC;
     opacity: 1;
+    margin-left: 22px;
 }
 
 .obpress-hotels-results-roomrate {
@@ -51,6 +52,10 @@ body {
 
 .obpress-hotels-results-roomrate:last-child {
     margin-bottom: 58px;
+}
+
+.obpress-hotels-results-roomrate.left {
+    justify-content: flex-end;
 }
 
 .obpress-hotels-results-hotel-image {
@@ -73,6 +78,11 @@ body {
     display: flex;
     flex-direction: column;
     padding: 20px 21px 21px 21px;
+}
+
+.obpress-chain-results-hotel-info.left {
+    right: unset;
+    left: 0px;
 }
 
 .hotel_stars {
@@ -138,6 +148,11 @@ body {
     font-weight: 500;
     border-width: 0px;
     text-decoration: none;
+    text-align: center;
+}
+
+.obpress-hotels-button.custom_width {
+    width: 100%;
 }
 
 .obpress-hotels-button:hover {

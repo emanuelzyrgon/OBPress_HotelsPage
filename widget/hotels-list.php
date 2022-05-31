@@ -45,883 +45,1222 @@ class HotelsPage extends \Elementor\Widget_Base
 	protected function _register_controls()
 	{
 
-		// $this->start_controls_section(
-		// 	'color_main_section',
-		// 	[
-		// 		'label' => __('Titles', 'OBPress_SpecialOffersList'),
-		// 		'tab' => \Elementor\Controls_Manager::TAB_STYLE,
-		// 	]
-		// );
+		$this->start_controls_section(
+			'hotels_main_section',
+			[
+				'label' => __('Search Section', 'OBPress_HotelsPage'),
+				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
+			]
+		);
 
-		// $this->add_control(
-		// 	'obpress_packages_title_color',
-		// 	[
-		// 		'label' => __('Packages Title Color', 'OBPress_SpecialOffersList'),
-		// 		'type' => \Elementor\Controls_Manager::COLOR,
-		// 		'input_type' => 'color',
-		// 		'default' => '#000',
-		// 		'selectors' => [
-		// 			'.packages .packages_header_message' => 'color: {{obpress_packages_title_color}}'
-		// 		],
-		// 	]
-		// );
+		$this->add_control(
+			'hotels_search_section_height',
+			[
+				'label' => __( 'Height', 'OBPress_HotelsPage' ),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'default' => [
+					'size' => 197,
+				],
+				'range' => [
+					'px' => [
+						'max' => 400,
+						'min' => 50,
+						'step' => 1,
+					],
+				],
+				'render_type' => 'ui',
+				'selectors' => [
+					'.obpress-chain-results-hotels-page .obpress-search-header-hotels' => 'height: {{SIZE}}px',
+				],
+			]
+		);
 
-		// $this->add_group_control(
-		// 	\Elementor\Group_Control_Typography::get_type(),
-		// 	[
-		// 		'name' => 'packages_title_text_typography',
-		// 		'label' => __('Packages Title Typography', 'OBPress_SpecialOffersList'),
-		// 		'selector' => '.packages .packages_header_message',
-		// 		'fields_options' => [
-		// 			'typography' => [
-		// 				'default' => 'yes'
-		// 			],
-		// 			'font_family' => [
-		// 				'default' => 'Montserrat',
-		// 			],
-		// 			'font_size' => [
-		// 				'default' => [
-		// 					'unit' => 'px',
-		// 					'size' => '24',
-		// 				],
-		// 			],
-		// 			'font_weight' => [
-		// 				'default' => '700',
-		// 			],
-		// 			'line_height' => [
-		// 				'default' => [
-		// 					'unit' => 'px',
-		// 					'size' => '29',
-		// 				],
-		// 			],
-		// 		],
-		// 	]
-		// );
+		$this->add_control(
+			'hotels_search_section_padding',
+			[
+				'label' => __( 'Padding', 'OBPress_HotelsPage' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'default' => [
+					'top' => '50',
+					'right' => '0',
+					'bottom' => '0',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'size_units' => [ 'px', '%', 'em' ],
+				'selectors' => [
+					'.obpress-chain-results-hotels-page .obpress-search-header-hotels' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
 
-		// $this->add_control(
-		// 	'obpress_packages_title_margin',
-		// 	[
-		// 		'label' => __( 'Packages Title Margin', 'OBPress_SpecialOffersList' ),
-		// 		'type' => \Elementor\Controls_Manager::DIMENSIONS,
-		// 		'default' => [
-		// 			'top' => '20',
-		// 			'right' => '0',
-		// 			'bottom' => '25',
-		// 			'left' => '0',
-		// 			'isLinked' => false
-		// 		],
-		// 		'size_units' => [ 'px', '%', 'em' ],
-		// 		'selectors' => [
-		// 			'.packages .packages_header_message' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-		// 		],
-		// 	]
-		// );
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'hotels_search_section_title_typography',
+				'label' => __('Title Typography', 'OBPress_HotelsPage'),
+				'selector' => '.obpress-chain-results-hotels-page .obpress-search-title',
+				'fields_options' => [
+					'typography' => [
+						'default' => 'yes'
+					],
+					'font_family' => [
+						'default' => 'Montserrat',
+					],
+					'font_size' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '30',
+						],
+					],
+					'font_weight' => [
+						'default' => '700',
+					],
+					'line_height' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '36',
+						],
+					],
+				],
+			]
+		);
 
-		// $this->add_control(
-		// 	'obpress_packages_title_text_align',
-		// 	[
-		// 		'label' => __( 'Packages Title Text Align', 'OBPress_SpecialOffersList' ),
-		// 		'type' => \Elementor\Controls_Manager::SELECT,
-		// 		'default' => 'left',
-		// 		'options' => [
-		// 			'left'  => __( 'Left', 'OBPress_SpecialOffersList' ),
-		// 			'center'  => __( 'Center', 'OBPress_SpecialOffersList' ),
-		// 			'right'  => __( 'Right', 'OBPress_SpecialOffersList' ),
-		// 		],
-		// 		'selectors' => [
-		// 			'.packages .packages_header_message' => 'text-align: {{packages_justify_content_cards}}'
-		// 		],
-		// 	]
-		// );
+		$this->add_control(
+			'hotels_search_section_title_color',
+			[
+				'label' => __('Title Color', 'OBPress_HotelsPage'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#000',
+				'selectors' => [
+					'.obpress-chain-results-hotels-page .obpress-search-title' => 'color: {{hotels_search_section_title_color}}'
+				],
+			]
+		);
 
-		// $this->add_control(
-		// 	'obpress_packages_hotel_name_color',
-		// 	[
-		// 		'label' => __('Packages Hotel Name Color', 'OBPress_SpecialOffersList'),
-		// 		'type' => \Elementor\Controls_Manager::COLOR,
-		// 		'input_type' => 'color',
-		// 		'default' => '#000',
-		// 		'selectors' => [
-		// 			'.packages .hotel_name' => 'color: {{obpress_packages_hotel_name_color}}'
-		// 		],
-		// 	]
-		// );
+		$this->add_control(
+			'hotels_search_section_title_text_align',
+			[
+				'label' => __( 'Title Text Align', 'OBPress_HotelsPage' ),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'default' => 'center',
+				'options' => [
+					'left'  => __( 'Left', 'OBPress_HotelsPage' ),
+					'center'  => __( 'Center', 'OBPress_HotelsPage' ),
+					'right'  => __( 'Right', 'OBPress_HotelsPage' ),
+				],
+				'selectors' => [
+					'.obpress-chain-results-hotels-page .obpress-search-title' => 'text-align: {{hotels_search_section_title_text_align}}'
+				],
+			]
+		);
 
-		// $this->add_group_control(
-		// 	\Elementor\Group_Control_Typography::get_type(),
-		// 	[
-		// 		'name' => 'packages_hotel_name_text_typography',
-		// 		'label' => __('Packages Hotel Name Typography', 'OBPress_SpecialOffersList'),
-		// 		'selector' => '.packages .hotel_name',
-		// 		'fields_options' => [
-		// 			'typography' => [
-		// 				'default' => 'yes'
-		// 			],
-		// 			'font_family' => [
-		// 				'default' => 'Montserrat',
-		// 			],
-		// 			'font_size' => [
-		// 				'default' => [
-		// 					'unit' => 'px',
-		// 					'size' => '20',
-		// 				],
-		// 			],
-		// 			'font_weight' => [
-		// 				'default' => '700',
-		// 			],
-		// 			'line_height' => [
-		// 				'default' => [
-		// 					'unit' => 'px',
-		// 					'size' => '24',
-		// 				],
-		// 			],
-		// 		],
-		// 	]
-		// );
+		$this->add_control(
+			'hotels_search_section_title_margin',
+			[
+				'label' => __( 'Title Margin', 'OBPress_HotelsPage' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'default' => [
+					'top' => '0',
+					'right' => '0',
+					'bottom' => '20',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'size_units' => [ 'px', '%', 'em' ],
+				'selectors' => [
+					'.obpress-chain-results-hotels-page .obpress-search-title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
 
-		// $this->add_control(
-		// 	'obpress_packages_hotel_name_margin',
-		// 	[
-		// 		'label' => __( 'Packages Hotel Name Margin', 'OBPress_SpecialOffersList' ),
-		// 		'type' => \Elementor\Controls_Manager::DIMENSIONS,
-		// 		'default' => [
-		// 			'top' => '50',
-		// 			'right' => '0',
-		// 			'bottom' => '0',
-		// 			'left' => '0',
-		// 			'isLinked' => false
-		// 		],
-		// 		'size_units' => [ 'px', '%', 'em' ],
-		// 		'selectors' => [
-		// 			'.packages .hotel_name' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-		// 		],
-		// 	]
-		// );
+		$this->add_control(
+			'hotels_search_section_search_input_width',
+			[
+				'label' => __( 'Search Input Width', 'OBPress_HotelsPage' ),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'default' => [
+					'size' => 500,
+				],
+				'range' => [
+					'px' => [
+						'max' => 1076,
+						'min' => 100,
+						'step' => 1,
+					],
+				],
+				'render_type' => 'ui',
+				'selectors' => [
+					'.obpress-chain-results-hotels-page #search-input' => 'min-width: {{SIZE}}px',
+				],
+			]
+		);
 
-		// $this->add_control(
-		// 	'obpress_packages_hotel_name_text_align',
-		// 	[
-		// 		'label' => __( 'Packages Hotel Name Text Align', 'OBPress_SpecialOffersList' ),
-		// 		'type' => \Elementor\Controls_Manager::SELECT,
-		// 		'default' => 'left',
-		// 		'options' => [
-		// 			'left'  => __( 'Left', 'OBPress_SpecialOffersList' ),
-		// 			'center'  => __( 'Center', 'OBPress_SpecialOffersList' ),
-		// 			'right'  => __( 'Right', 'OBPress_SpecialOffersList' ),
-		// 		],
-		// 		'selectors' => [
-		// 			'.packages .hotel_name' => 'text-align: {{packages_justify_content_cards}}'
-		// 		],
-		// 	]
-		// );
+		$this->add_control(
+			'hotels_search_section_search_input_height',
+			[
+				'label' => __( 'Search Input Height', 'OBPress_HotelsPage' ),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'default' => [
+					'size' => 42,
+				],
+				'range' => [
+					'px' => [
+						'max' => 100,
+						'min' => 20,
+						'step' => 1,
+					],
+				],
+				'render_type' => 'ui',
+				'selectors' => [
+					'.obpress-chain-results-hotels-page #search-input' => 'height: {{SIZE}}px',
+				],
+			]
+		);
 
-		// $this->end_controls_section();
+		$this->add_control(
+			'hotels_search_section_search_input_padding',
+			[
+				'label' => __( 'Search Input Padding', 'OBPress_HotelsPage' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'default' => [
+					'top' => '10',
+					'right' => '13',
+					'bottom' => '10',
+					'left' => '13',
+					'isLinked' => false
+				],
+				'size_units' => [ 'px', '%', 'em' ],
+				'selectors' => [
+					'.obpress-chain-results-hotels-page #search-input' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
 
-		// $this->start_controls_section(
-		// 	'packages_justify_content',
-		// 	[
-		// 		'label' => __('Packages Cards', 'OBPress_SpecialOffersList'),
-		// 		'tab' => \Elementor\Controls_Manager::TAB_STYLE,
-		// 	]
-		// );
+		$this->add_control(
+			'hotels_search_section_search_input_bg_color',
+			[
+				'label' => __('Search Input Background Color', 'OBPress_HotelsPage'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#fff',
+				'selectors' => [
+					'.obpress-chain-results-hotels-page #search-input' => 'background-color: {{hotels_search_section_search_input_bg_color}}'
+				],
+			]
+		);
 
-		// $this->add_control(
-		// 	'packages_justify_content_cards',
-		// 	[
-		// 		'label' => __( 'Cards Justify Content', 'OBPress_SpecialOffersList' ),
-		// 		'type' => \Elementor\Controls_Manager::SELECT,
-		// 		'default' => 'space-between',
-		// 		'options' => [
-		// 			'space-between'  => __( 'Space Between', 'OBPress_SpecialOffersList' ),
-		// 			'space-around'  => __( 'Space Around', 'OBPress_SpecialOffersList' ),
-		// 			'space-evenly'  => __( 'Space Evenly', 'OBPress_SpecialOffersList' ),
-		// 			'center' => __( 'Center', 'OBPress_SpecialOffersList' ),
-		// 			'flex-end'  => __( 'Flex End', 'OBPress_SpecialOffersList' ),
-		// 			'flex-start'  => __( 'Flex Start', 'OBPress_SpecialOffersList' ),
-		// 		],
-		// 		'selectors' => [
-		// 			'.packages .packages-per-hotel' => 'justify-content: {{packages_justify_content_cards}}'
-		// 		],
-		// 	]
-		// );
+		$this->end_controls_section();
 
-		// $this->add_control(
-		// 	'packages_cards_margin',
-		// 	[
-		// 		'label' => __( 'Cards Margin', 'OBPress_SpecialOffersList' ),
-		// 		'type' => \Elementor\Controls_Manager::DIMENSIONS,
-		// 		'default' => [
-		// 			'top' => '29',
-		// 			'right' => '0',
-		// 			'bottom' => '29',
-		// 			'left' => '0',
-		// 			'isLinked' => false
-		// 		],
-		// 		'size_units' => [ 'px', '%', 'em' ],
-		// 		'selectors' => [
-		// 			'.packages .package-card' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-		// 		],
-		// 	]
-		// );
+		$this->start_controls_section(
+			'hotels_cards_section',
+			[
+				'label' => __('Hotels Cards Section', 'OBPress_HotelsPage'),
+				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
+			]
+		);
 
-		// $this->add_control(
-		// 	'obpress_packages_card_image_width',
-		// 	[
-		// 		'label' => __( 'Cards Image Width', 'OBPress_SpecialOffersList' ),
-		// 		'type' => \Elementor\Controls_Manager::SLIDER,
-		// 		'default' => [
-		// 			'size' => 174,
-		// 		],
-		// 		'range' => [
-		// 			'px' => [
-		// 				'max' => 260,
-		// 				'step' => 1,
-		// 			],
-		// 		],
-		// 		'render_type' => 'ui',
-		// 		'selectors' => [
-		// 			'.packages .package-card-img' => 'width: {{SIZE}}px',
-		// 		],
-		// 	]
-		// );
+		$this->add_control(
+			'hotels_cards_margin',
+			[
+				'label' => __( 'Hotels Cards Margin', 'OBPress_HotelsPage' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'default' => [
+					'top' => '0',
+					'right' => '0',
+					'bottom' => '38',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'size_units' => [ 'px', '%', 'em' ],
+				'selectors' => [
+					'.obpress-chain-results-hotels-page .obpress-hotels-results-roomrate' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
 
-		// $this->add_control(
-		// 	'obpress_packages_card_ribon_position',
-		// 	[
-		// 		'label' => __( 'Cards Ribon Top Position', 'OBPress_SpecialOffersList' ),
-		// 		'type' => \Elementor\Controls_Manager::SLIDER,
-		// 		'default' => [
-		// 			'size' => 13,
-		// 		],
-		// 		'range' => [
-		// 			'px' => [
-		// 				'max' => 279,
-		// 				'step' => 1,
-		// 			],
-		// 		],
-		// 		'render_type' => 'ui',
-		// 		'selectors' => [
-		// 			'.packages .package-card-best-price' => 'top: {{SIZE}}px',
-		// 		],
-		// 	]
-		// );
+		$this->add_control(
+			'hotels_last_card_margin',
+			[
+				'label' => __( 'Hotels Last Card Margin', 'OBPress_HotelsPage' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'default' => [
+					'top' => '0',
+					'right' => '0',
+					'bottom' => '58',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'size_units' => [ 'px', '%', 'em' ],
+				'selectors' => [
+					'.obpress-chain-results-hotels-page .obpress-hotels-results-roomrate:last-child' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
 
-		// $this->add_control(
-		// 	'packages_cards_padding',
-		// 	[
-		// 		'label' => __( 'Cards Padding', 'OBPress_SpecialOffersList' ),
-		// 		'type' => \Elementor\Controls_Manager::DIMENSIONS,
-		// 		'default' => [
-		// 			'top' => '18.8',
-		// 			'right' => '27.7',
-		// 			'bottom' => '21.83',
-		// 			'left' => '23.11',
-		// 			'isLinked' => false
-		// 		],
-		// 		'size_units' => [ 'px', '%', 'em' ],
-		// 		'selectors' => [
-		// 			'.packages .package-card-body' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-		// 		],
-		// 	]
-		// );
+		$this->add_control(
+			'hotels_cards_title_margin',
+			[
+				'label' => __( 'Hotels Title Margin', 'OBPress_HotelsPage' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'default' => [
+					'top' => '0',
+					'right' => '0',
+					'bottom' => '23',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'size_units' => [ 'px', '%', 'em' ],
+				'selectors' => [
+					'.obpress-chain-results-hotels-page .obpress-hotels-title-holder' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
 
-		// $this->add_control(
-		// 	'packages_justify_content_btn_and_price',
-		// 	[
-		// 		'label' => __( 'Button And Price Justify Content', 'OBPress_SpecialOffersList' ),
-		// 		'type' => \Elementor\Controls_Manager::SELECT,
-		// 		'default' => 'space-between',
-		// 		'options' => [
-		// 			'space-between'  => __( 'Space Between', 'OBPress_SpecialOffersList' ),
-		// 			'space-around'  => __( 'Space Around', 'OBPress_SpecialOffersList' ),
-		// 			'space-evenly'  => __( 'Space Evenly', 'OBPress_SpecialOffersList' ),
-		// 			'center' => __( 'Center', 'OBPress_SpecialOffersList' ),
-		// 			'flex-end'  => __( 'Flex End', 'OBPress_SpecialOffersList' ),
-		// 			'flex-start'  => __( 'Flex Start', 'OBPress_SpecialOffersList' ),
-		// 		],
-		// 		'selectors' => [
-		// 			'.packages .price-and-button-holder' => 'justify-content: {{packages_justify_content_btn_and_price}}'
-		// 		],
-		// 	]
-		// );
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'hotels_cards_title_typography',
+				'label' => __('Hotels Title Typography', 'OBPress_HotelsPage'),
+				'selector' => '.obpress-chain-results-hotels-page .obpress-hotels-title',
+				'fields_options' => [
+					'typography' => [
+						'default' => 'yes'
+					],
+					'font_family' => [
+						'default' => 'Montserrat',
+					],
+					'font_size' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '20',
+						],
+					],
+					'font_weight' => [
+						'default' => '700',
+					],
+					'line_height' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '24',
+						],
+					],
+				],
+			]
+		);
 
-		// $this->end_controls_section();
+		$this->add_control(
+			'hotels_cards_title_color',
+			[
+				'label' => __('Hotels Title Color', 'OBPress_HotelsPage'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#000',
+				'selectors' => [
+					'.obpress-chain-results-hotels-page .obpress-hotels-title' => 'color: {{hotels_cards_title_color}}'
+				],
+			]
+		);
 
-		// $this->start_controls_section(
-		// 	'color_cards_section',
-		// 	[
-		// 		'label' => __('Packages Cards Color', 'OBPress_SpecialOffersList'),
-		// 		'tab' => \Elementor\Controls_Manager::TAB_STYLE,
-		// 	]
-		// );
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'hotels_cards_city_typography',
+				'label' => __('Hotels City Typography', 'OBPress_HotelsPage'),
+				'selector' => '.obpress-chain-results-hotels-page .obpress-hotels-city-name',
+				'fields_options' => [
+					'typography' => [
+						'default' => 'yes'
+					],
+					'font_family' => [
+						'default' => 'Montserrat',
+					],
+					'font_size' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '20',
+						],
+					],
+					'font_weight' => [
+						'default' => '400',
+					],
+					'line_height' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '24',
+						],
+					],
+				],
+			]
+		);
 
-		// $this->add_control(
-		// 	'obpress_packages_cards_bg_color',
-		// 	[
-		// 		'label' => __('Cards Background Color', 'OBPress_SpecialOffersList'),
-		// 		'type' => \Elementor\Controls_Manager::COLOR,
-		// 		'input_type' => 'color',
-		// 		'default' => '#fff',
-		// 		'selectors' => [
-		// 			'.packages .package-card-body' => 'background-color: {{obpress_packages_cards_bg_color}}'
-		// 		],
-		// 	]
-		// );
+		$this->add_control(
+			'hotels_cards_city_color',
+			[
+				'label' => __('Hotels City Color', 'OBPress_HotelsPage'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#000',
+				'selectors' => [
+					'.obpress-chain-results-hotels-page .obpress-hotels-city-name' => 'color: {{hotels_cards_city_color}}'
+				],
+			]
+		);
 
-		// $this->add_group_control(
-		// 	\Elementor\Group_Control_Box_Shadow::get_type(),
-		// 	[
-		// 		'name' => 'box_shadow',
-		// 		'label' => esc_html__( 'Cards Box Shadow', 'OBPress_SpecialOffersList' ),
-		// 		'selector' => '{{WRAPPER}} .packages .package-card',
-		// 	]
-		// );
+		$this->add_control(
+			'hotels_cards_title_line_width',
+			[
+				'label' => __( 'Hotels Line Width', 'OBPress_HotelsPage' ),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'default' => [
+					'size' => 100,
+				],
+				'range' => [
+					'px' => [
+						'max' => 100,
+						'min' => 0,
+						'step' => 1,
+					],
+				],
+				'render_type' => 'ui',
+				'selectors' => [
+					'.obpress-chain-results-hotels-page .obpress-hotels-title-holder hr' => 'width: {{SIZE}}%',
+				],
+			]
+		);
+		
+		$this->add_control(
+			'hotels_cards_title_line_height',
+			[
+				'label' => __( 'Hotels Line Height', 'OBPress_HotelsPage' ),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'default' => [
+					'size' => 1,
+				],
+				'range' => [
+					'px' => [
+						'max' => 30,
+						'min' => 1,
+						'step' => 1,
+					],
+				],
+				'render_type' => 'ui',
+				'selectors' => [
+					'.obpress-chain-results-hotels-page .obpress-hotels-title-holder hr' => 'height: {{SIZE}}px',
+				],
+			]
+		);
 
-		// $this->add_control(
-		// 	'obpress_packages_cards_lowest_price_color',
-		// 	[
-		// 		'label' => __('Ribbon Color', 'OBPress_SpecialOffersList'),
-		// 		'type' => \Elementor\Controls_Manager::COLOR,
-		// 		'input_type' => 'color',
-		// 		'default' => '#fff',
-		// 		'selectors' => [
-		// 			'.packages .text' => 'color: {{obpress_packages_cards_bg_color}}'
-		// 		],
-		// 	]
-		// );
+		$this->add_control(
+			'hotels_cards_title_line_background_color',
+			[
+				'label' => __('Hotels Line Background Color', 'OBPress_HotelsPage'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#D9DADC',
+				'selectors' => [
+					'.obpress-chain-results-hotels-page .obpress-hotels-title-holder hr' => 'background-color: {{hotels_cards_title_line_background_color}}'
+				],
+			]
+		);
 
-		// $this->add_group_control(
-		// 	\Elementor\Group_Control_Typography::get_type(),
-		// 	[
-		// 		'name' => 'packages_ribon_text_typography',
-		// 		'label' => __('Ribbon Text Typography', 'OBPress_SpecialOffersList'),
-		// 		'selector' => '.packages .text',
-		// 		'fields_options' => [
-		// 			'typography' => [
-		// 				'default' => 'yes'
-		// 			],
-		// 			'font_family' => [
-		// 				'default' => 'Montserrat',
-		// 			],
-		// 			'font_size' => [
-		// 				'default' => [
-		// 					'unit' => 'px',
-		// 					'size' => '16',
-		// 				],
-		// 			],
-		// 			'font_weight' => [
-		// 				'default' => '500',
-		// 			],
-		// 			'line_height' => [
-		// 				'default' => [
-		// 					'unit' => 'px',
-		// 					'size' => '19',
-		// 				],
-		// 			],
-		// 		],
-		// 	]
-		// );
+		$this->add_control(
+			'hotels_cards_title_line_margin',
+			[
+				'label' => __( 'Hotels Line Margin', 'OBPress_HotelsPage' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'default' => [
+					'top' => '0',
+					'right' => '0',
+					'bottom' => '0',
+					'left' => '23',
+					'isLinked' => false
+				],
+				'size_units' => [ 'px', '%', 'em' ],
+				'selectors' => [
+					'.obpress-chain-results-hotels-page .obpress-hotels-title-holder hr' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
 
-		// $this->add_control(
-		// 	'obpress_packages_cards_lowest_price_bg_color',
-		// 	[
-		// 		'label' => __('Ribbon Background Color', 'OBPress_SpecialOffersList'),
-		// 		'type' => \Elementor\Controls_Manager::COLOR,
-		// 		'input_type' => 'color',
-		// 		'default' => '#82B789',
-		// 		'selectors' => [
-		// 			'.packages .text' => 'background-color: {{obpress_packages_cards_lowest_price_bg_color}}',
-		// 			'.packages .text:before' => 'border-top-color: {{obpress_packages_cards_lowest_price_bg_color}}'
-		// 		],
-		// 	]
-		// );
+		$this->add_control(
+			'hotels_cards_title_justify_content',
+			[
+				'label' => __( 'Hotels Title Justify Content', 'OBPress_HotelsPage' ),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'default' => 'center',
+				'options' => [
+					'space-between'  => __( 'Space Between', 'OBPress_HotelsPage' ),
+					'space-around'  => __( 'Space Around', 'OBPress_HotelsPage' ),
+					'space-evenly'  => __( 'Space Evenly', 'OBPress_HotelsPage' ),
+					'center' => __( 'Center', 'OBPress_HotelsPage' ),
+					'flex-end'  => __( 'Flex End', 'OBPress_HotelsPage' ),
+					'flex-start'  => __( 'Flex Start', 'OBPress_HotelsPage' ),
+				],
+				'selectors' => [
+					'.obpress-chain-results-hotels-page .obpress-hotels-title-holder' => 'justify-content: {{room_searchbar_justify_content}}'
+				],
+			]
+		);
 
-		// $this->add_control(
-		// 	'obpress_packages_cards_divider_color',
-		// 	[
-		// 		'label' => __('Cards Divider Color', 'OBPress_SpecialOffersList'),
-		// 		'type' => \Elementor\Controls_Manager::COLOR,
-		// 		'input_type' => 'color',
-		// 		'default' => '#E6E6E6',
-		// 		'selectors' => [
-		// 			'{{WRAPPER}} .packages .package-card-body-top' => 'border-bottom-color: {{obpress_packages_cards_divider_color}}'
-		// 		],
-		// 	]
-		// );
+		$this->add_control(
+			'hotels_cards_side',
+			[
+				'label' => __( 'Hotels Cards Side', 'OBPress_HotelsPage' ),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'default' => 'right',
+				'options' => [
+					'left'  => __( 'Left', 'OBPress_HotelsPage' ),
+					'right'  => __( 'Right', 'OBPress_HotelsPage' ),
+				]
+			]
+		);
 
-		// $this->add_control(
-		// 	'obpress_packages_card_divider_height',
-		// 	[
-		// 		'label' => __( 'Cards Divider Height', 'OBPress_SpecialOffersList' ),
-		// 		'type' => \Elementor\Controls_Manager::SLIDER,
-		// 		'default' => [
-		// 			'size' => 1,
-		// 		],
-		// 		'range' => [
-		// 			'px' => [
-		// 				'max' => 5,
-		// 				'step' => 0.1,
-		// 			],
-		// 		],
-		// 		'render_type' => 'ui',
-		// 		'selectors' => [
-		// 			'.packages .package-card-body-top' => 'border-bottom: {{SIZE}}px solid',
-		// 		],
-		// 	]
-		// );
+		$this->add_control(
+			'hotels_cards_image_width',
+			[
+				'label' => __( 'Image Width', 'OBPress_HotelsPage' ),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'default' => [
+					'size' => 669,
+				],
+				'range' => [
+					'px' => [
+						'max' => 1076,
+						'min' => 100,
+						'step' => 1,
+					],
+				],
+				'render_type' => 'ui',
+				'selectors' => [
+					'.obpress-chain-results-hotels-page .obpress-hotels-results-hotel-image img' => 'width: {{SIZE}}px',
+				],
+			]
+		);
 
-		// $this->end_controls_section();
+		$this->add_control(
+			'hotels_cards_image_height',
+			[
+				'label' => __( 'Image Height', 'OBPress_HotelsPage' ),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'default' => [
+					'size' => 393,
+				],
+				'range' => [
+					'px' => [
+						'max' => 700,
+						'min' => 100,
+						'step' => 1,
+					],
+				],
+				'render_type' => 'ui',
+				'selectors' => [
+					'.obpress-chain-results-hotels-page .obpress-hotels-results-hotel-image img' => 'height: {{SIZE}}px',
+				],
+			]
+		);
 
-		// $this->start_controls_section(
-		// 	'color_cards_elements_section',
-		// 	[
-		// 		'label' => __('Packages Cards Elements Style', 'OBPress_SpecialOffersList'),
-		// 		'tab' => \Elementor\Controls_Manager::TAB_STYLE,
-		// 	]
-		// );
+		$this->end_controls_section();
 
-		// $this->add_control(
-		// 	'ribbon_padding',
-		// 	[
-		// 		'label' => __( 'Ribbon Padding', 'OBPress_SpecialOffersList' ),
-		// 		'type' => \Elementor\Controls_Manager::DIMENSIONS,
-		// 		'default' => [
-		// 			'top' => '10',
-		// 			'right' => '26',
-		// 			'bottom' => '10',
-		// 			'left' => '26',
-		// 			'isLinked' => false
-		// 		],
-		// 		'size_units' => [ 'px', '%', 'em' ],
-		// 		'selectors' => [
-		// 			'.packages .text' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-		// 		],
-		// 	]
-		// );
+		$this->start_controls_section(
+			'hotels_info_section',
+			[
+				'label' => __(' Info Section', 'OBPress_HotelsPage'),
+				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
+			]
+		);
+		
+		$this->add_control(
+			'hotels_cards_info_section_width',
+			[
+				'label' => __( 'Info Width', 'OBPress_HotelsPage' ),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'default' => [
+					'size' => 466,
+				],
+				'range' => [
+					'px' => [
+						'max' => 800,
+						'min' => 300,
+						'step' => 1,
+					],
+				],
+				'render_type' => 'ui',
+				'selectors' => [
+					'.obpress-chain-results-hotels-page .obpress-chain-results-hotel-info' => 'width: {{SIZE}}px',
+				],
+			]
+		);
+		
+		$this->add_control(
+			'hotels_cards_info_section_bg_color',
+			[
+				'label' => __('Info Background Color', 'OBPress_HotelsPage'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#fff',
+				'selectors' => [
+					'.obpress-chain-results-hotels-page .obpress-chain-results-hotel-info' => 'background-color: {{hotels_cards_info_section_bg_color}}'
+				],
+			]
+		);
 
-		// $this->add_control(
-		// 	'obpress_packages_card_name_color',
-		// 	[
-		// 		'label' => __('Package Name Color', 'OBPress_SpecialOffersList'),
-		// 		'type' => \Elementor\Controls_Manager::COLOR,
-		// 		'input_type' => 'color',
-		// 		'default' => '#000',
-		// 		'selectors' => [
-		// 			'.packages .package-card-title' => 'color: {{obpress_packages_card_name_color}}'
-		// 		],
-		// 	]
-		// );
+		$this->add_group_control(
+			\Elementor\Group_Control_Box_Shadow::get_type(),
+			[
+				'name' => 'hotels_cards_info_section_box_shadow',
+				'label' => esc_html__( 'Info Box Shadow', 'OBPress_HotelsPage' ),
+				'selector' => '{{WRAPPER}} .obpress-chain-results-hotels-page .obpress-chain-results-hotel-info',
+				'fields_options' => [
+					'box_shadow_type' => [ 
+						'default' =>'yes' 
+					],
+					'box_shadow' => [
+						'default' =>[
+							'horizontal' => 0,
+							'vertical' => 13,
+							'blur' => 15,
+							'color' => '#00000029'
+						]
+					]
+				]
+			]
+		);
 
-		// $this->add_group_control(
-		// 	\Elementor\Group_Control_Typography::get_type(),
-		// 	[
-		// 		'name' => 'obpress_packages_card_name_typography',
-		// 		'label' => __('Package Name Typography', 'OBPress_SpecialOffersList'),
-		// 		'selector' => '.packages .package-card-title',
-		// 		'fields_options' => [
-		// 			'typography' => [
-		// 				'default' => 'yes'
-		// 			],
-		// 			'font_family' => [
-		// 				'default' => 'Montserrat',
-		// 			],
-		// 			'font_size' => [
-		// 				'default' => [
-		// 					'unit' => 'px',
-		// 					'size' => '20',
-		// 				],
-		// 			],
-		// 			'font_weight' => [
-		// 				'default' => '700',
-		// 			],
-		// 			'line_height' => [
-		// 				'default' => [
-		// 					'unit' => 'px',
-		// 					'size' => '24',
-		// 				],
-		// 			],
-		// 		],
-		// 	]
-		// );
+		$this->add_control(
+			'hotels_cards_info_section_padding',
+			[
+				'label' => __( 'Padding', 'OBPress_HotelsPage' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'default' => [
+					'top' => '20',
+					'right' => '21',
+					'bottom' => '21',
+					'left' => '21',
+					'isLinked' => false
+				],
+				'size_units' => [ 'px', '%', 'em' ],
+				'selectors' => [
+					'.obpress-chain-results-hotels-page .obpress-chain-results-hotel-info' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
 
-		// $this->add_control(
-		// 	'obpress_packages_card_name_text_align',
-		// 	[
-		// 		'label' => __( 'Packages Name Text Align', 'OBPress_SpecialOffersList' ),
-		// 		'type' => \Elementor\Controls_Manager::SELECT,
-		// 		'default' => 'left',
-		// 		'options' => [
-		// 			'left'  => __( 'Left', 'OBPress_SpecialOffersList' ),
-		// 			'center'  => __( 'Center', 'OBPress_SpecialOffersList' ),
-		// 			'right'  => __( 'Right', 'OBPress_SpecialOffersList' ),
-		// 		],
-		// 		'selectors' => [
-		// 			'.packages .package-card-title' => 'text-align: {{obpress_packages_card_name_text_align}}'
-		// 		],
-		// 	]
-		// );
+		$this->add_control(
+			'hotels_cards_info_section_stars_justify_content',
+			[
+				'label' => __( 'Stars Justify Content', 'OBPress_HotelsPage' ),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'default' => 'flex-start',
+				'options' => [
+					'flex-start'  => __( 'Left', 'OBPress_HotelsPage' ),
+					'center' => __( 'Center', 'OBPress_HotelsPage' ),
+					'flex-end'  => __( 'Right', 'OBPress_HotelsPage' )
+				],
+				'selectors' => [
+					'.obpress-chain-results-hotels-page .hotel_stars' => 'justify-content: {{room_searchbar_justify_content}}'
+				],
+			]
+		);
 
-		// $this->add_control(
-		// 	'obpress_packages_card_name_padding',
-		// 	[
-		// 		'label' => __( 'Packages Name Padding', 'OBPress_SpecialOffersList' ),
-		// 		'type' => \Elementor\Controls_Manager::DIMENSIONS,
-		// 		'default' => [
-		// 			'top' => '0',
-		// 			'right' => '0',
-		// 			'bottom' => '17.48',
-		// 			'left' => '0',
-		// 			'isLinked' => false
-		// 		],
-		// 		'size_units' => [ 'px', '%', 'em' ],
-		// 		'selectors' => [
-		// 			'.packages .package-card-body-top' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
-		// 		],
-		// 	]
-		// );
+		$this->add_control(
+			'hotels_cards_info_section_stars_color',
+			[
+				'label' => __('Stars Color', 'OBPress_HotelsPage'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#ffc70e',
+				'selectors' => [
+					'.obpress-chain-results-hotels-page .hotel_star g path' => 'fill: {{hotels_cards_info_section_stars_color}}; stroke: {{hotels_cards_info_section_stars_color}}',
+					'.obpress-chain-results-hotels-page .hotel_star_outline .d' => 'fill: {{hotels_cards_info_section_stars_color}}',
+					'.obpress-chain-results-hotels-page .hotel_star_outline g g .c' => 'stroke: {{hotels_cards_info_section_stars_color}}'
+				],
+			]
+		);
 
-		// $this->add_control(
-		// 	'obpress_packages_card_description_color',
-		// 	[
-		// 		'label' => __('Package Description Color', 'OBPress_SpecialOffersList'),
-		// 		'type' => \Elementor\Controls_Manager::COLOR,
-		// 		'input_type' => 'color',
-		// 		'default' => '#2C2F33',
-		// 		'selectors' => [
-		// 			'.packages .package-card-text-desktop' => 'color: {{obpress_packages_card_description_color}}',
-		// 			'.packages .package-card-text-mobile' => 'color: {{obpress_packages_card_description_color}}'
-		// 		],
-		// 	]
-		// );
+		$this->add_control(
+			'hotels_cards_info_section_stars_margin',
+			[
+				'label' => __( 'Stars Margin', 'OBPress_HotelsPage' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'default' => [
+					'top' => '0',
+					'right' => '0',
+					'bottom' => '5',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'size_units' => [ 'px', '%', 'em' ],
+				'selectors' => [
+					'.obpress-chain-results-hotels-page .hotel_stars' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
 
-		// $this->add_group_control(
-		// 	\Elementor\Group_Control_Typography::get_type(),
-		// 	[
-		// 		'name' => 'obpress_packages_card_description_typography',
-		// 		'label' => __('Package Description Typography', 'OBPress_SpecialOffersList'),
-		// 		'selector' => [
-		// 			'.packages .package-card-text-desktop',
-		// 			'.packages .package-card-text-mobile',
-		// 		],
-		// 		'fields_options' => [
-		// 			'typography' => [
-		// 				'default' => 'yes'
-		// 			],
-		// 			'font_family' => [
-		// 				'default' => 'Montserrat',
-		// 			],
-		// 			'font_size' => [
-		// 				'default' => [
-		// 					'unit' => 'px',
-		// 					'size' => '14',
-		// 				],
-		// 			],
-		// 			'font_weight' => [
-		// 				'default' => '400',
-		// 			],
-		// 			'line_height' => [
-		// 				'default' => [
-		// 					'unit' => 'px',
-		// 					'size' => '20',
-		// 				],
-		// 			],
-		// 		],
-		// 	]
-		// );
+		$this->add_control(
+			'hotels_cards_info_section_star_margin',
+			[
+				'label' => __( 'Star Margin', 'OBPress_HotelsPage' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'default' => [
+					'top' => '0',
+					'right' => '5',
+					'bottom' => '0',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'size_units' => [ 'px', '%', 'em' ],
+				'selectors' => [
+					'.obpress-chain-results-hotels-page .hotel_star, .obpress-chain-results-hotels-page .hotel_star_outline' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
 
-		// $this->add_control(
-		// 	'obpress_packages_card_description_text_align',
-		// 	[
-		// 		'label' => __( 'Packages Card Description Text Align', 'OBPress_SpecialOffersList' ),
-		// 		'type' => \Elementor\Controls_Manager::SELECT,
-		// 		'default' => 'left',
-		// 		'options' => [
-		// 			'left'  => __( 'Left', 'OBPress_SpecialOffersList' ),
-		// 			'center'  => __( 'Center', 'OBPress_SpecialOffersList' ),
-		// 			'right'  => __( 'Right', 'OBPress_SpecialOffersList' ),
-		// 		],
-		// 		'selectors' => [
-		// 			'.packages .package-card-text-desktop' => 'text-align: {{obpress_packages_card_description_text_align}}',
-		// 			'.packages .package-card-text-mobile' => 'text-align: {{obpress_packages_card_description_text_align}}'
-		// 		],
-		// 	]
-		// );
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'hotels_cards_info_section_hotel_name_typography',
+				'label' => __('Hotel Name Typography', 'OBPress_HotelsPage'),
+				'selector' => '.obpress-chain-results-hotels-page .obpress-hotels-name',
+				'fields_options' => [
+					'typography' => [
+						'default' => 'yes'
+					],
+					'font_family' => [
+						'default' => 'Montserrat',
+					],
+					'font_size' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '20',
+						],
+					],
+					'font_weight' => [
+						'default' => '700',
+					],
+					'line_height' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '24',
+						],
+					],
+				],
+			]
+		);
 
-		// $this->add_control(
-		// 	'obpress_packages_card_description_margin',
-		// 	[
-		// 		'label' => __( 'Packages Card Description Text Margin', 'OBPress_SpecialOffersList' ),
-		// 		'type' => \Elementor\Controls_Manager::DIMENSIONS,
-		// 		'default' => [
-		// 			'top' => '17.48',
-		// 			'right' => '0',
-		// 			'bottom' => '17.48',
-		// 			'left' => '0',
-		// 			'isLinked' => false
-		// 		],
-		// 		'size_units' => [ 'px', '%', 'em' ],
-		// 		'selectors' => [
-		// 			'.packages .package-card-text-desktop' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-		// 			'.packages .package-card-text-mobile' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-		// 		],
-		// 	]
-		// );
-
-		// $this->add_control(
-		// 	'packages_justify_content_description_and_button',
-		// 	[
-		// 		'label' => __( 'Description Justify Content', 'OBPress_SpecialOffersList' ),
-		// 		'type' => \Elementor\Controls_Manager::SELECT,
-		// 		'default' => 'space-between',
-		// 		'options' => [
-		// 			'space-between'  => __( 'Space Between', 'OBPress_SpecialOffersList' ),
-		// 			'space-around'  => __( 'Space Around', 'OBPress_SpecialOffersList' ),
-		// 			'space-evenly'  => __( 'Space Evenly', 'OBPress_SpecialOffersList' ),
-		// 			'center' => __( 'Center', 'OBPress_SpecialOffersList' ),
-		// 			'flex-end'  => __( 'Flex End', 'OBPress_SpecialOffersList' ),
-		// 			'flex-start'  => __( 'Flex Start', 'OBPress_SpecialOffersList' ),
-		// 		],
-		// 		'selectors' => [
-		// 			'.packages .package-card-body-bottom' => 'justify-content: {{packages_justify_content_description_and_button}}'
-		// 		],
-		// 	]
-		// );
-
-		// $this->end_controls_section();
-
-		// $this->start_controls_section(
-		// 	'color_cards_price_section',
-		// 	[
-		// 		'label' => __('Packages Cards Price Style', 'OBPress_SpecialOffersList'),
-		// 		'tab' => \Elementor\Controls_Manager::TAB_STYLE,
-		// 	]
-		// );
-
-		// $this->add_control(
-		// 	'obpress_packages_card_price_text_color',
-		// 	[
-		// 		'label' => __('Packages Price Text Color', 'OBPress_SpecialOffersList'),
-		// 		'type' => \Elementor\Controls_Manager::COLOR,
-		// 		'input_type' => 'color',
-		// 		'default' => '#000',
-		// 		'selectors' => [
-		// 			'.packages .price-text' => 'color: {{obpress_packages_card_price_text_color}}'
-		// 		],
-		// 	]
-		// );
-
-		// $this->add_group_control(
-		// 	\Elementor\Group_Control_Typography::get_type(),
-		// 	[
-		// 		'name' => 'packages_price_text_typography',
-		// 		'label' => __('Packages Price Text Typography', 'OBPress_SpecialOffersList'),
-		// 		'selector' => '.packages .price-text',
-		// 	]
-		// );
-
-		// $this->add_control(
-		// 	'packages_price_text_text_align',
-		// 	[
-		// 		'label' => __( 'Packages Price Text Align', 'OBPress_SpecialOffersList' ),
-		// 		'type' => \Elementor\Controls_Manager::SELECT,
-		// 		'default' => 'left',
-		// 		'options' => [
-		// 			'left'  => __( 'Left', 'OBPress_SpecialOffersList' ),
-		// 			'center'  => __( 'Center', 'OBPress_SpecialOffersList' ),
-		// 			'right'  => __( 'Right', 'OBPress_SpecialOffersList' ),
-		// 		],
-		// 		'selectors' => [
-		// 			'.packages .price-text' => 'text-align: {{obpress_packages_card_name_text_align}}'
-		// 		],
-		// 	]
-		// );
-
-		// $this->add_control(
-		// 	'obpress_packages_card_price_color',
-		// 	[
-		// 		'label' => __('Packages Price Color', 'OBPress_SpecialOffersList'),
-		// 		'type' => \Elementor\Controls_Manager::COLOR,
-		// 		'input_type' => 'color',
-		// 		'default' => '#BEAD8E',
-		// 		'selectors' => [
-		// 			'.packages .price' => 'color: {{obpress_packages_card_price_color}}'
-		// 		],
-		// 	]
-		// );
-
-		// $this->add_group_control(
-		// 	\Elementor\Group_Control_Typography::get_type(),
-		// 	[
-		// 		'name' => 'packages_price_currency_typography',
-		// 		'label' => __('Packages Price Currency Typography', 'OBPress_SpecialOffersList'),
-		// 		'selector' => '.packages .price .currency_symbol_price',
-		// 	]
-		// );
-
-		// $this->add_group_control(
-		// 	\Elementor\Group_Control_Typography::get_type(),
-		// 	[
-		// 		'name' => 'packages_price_typography',
-		// 		'label' => __('Packages Price Typography', 'OBPress_SpecialOffersList'),
-		// 		'selector' => '.packages .price',
-		// 	]
-		// );
-
-		// $this->add_group_control(
-		// 	\Elementor\Group_Control_Typography::get_type(),
-		// 	[
-		// 		'name' => 'packages_price_deciaml_typography',
-		// 		'label' => __('Packages Decimal Price Typography', 'OBPress_SpecialOffersList'),
-		// 		'selector' => '.packages .price .decimal_value_price',
-		// 	]
-		// );
-
-		// $this->end_controls_section();
-
-		// $this->start_controls_section(
-		// 	'color_cards_button_section',
-		// 	[
-		// 		'label' => __('Packages Cards Button Style', 'OBPress_SpecialOffersList'),
-		// 		'tab' => \Elementor\Controls_Manager::TAB_STYLE,
-		// 	]
-		// );
-
-		// $this->add_control(
-		// 	'obpress_packages_card_button_color',
-		// 	[
-		// 		'label' => __('Button Color', 'OBPress_SpecialOffersList'),
-		// 		'type' => \Elementor\Controls_Manager::COLOR,
-		// 		'input_type' => 'color',
-		// 		'default' => '#FFF',
-		// 		'selectors' => [
-		// 			'.packages .package-button' => 'color: {{obpress_packages_card_button_color}}'
-		// 		],
-		// 	]
-		// );
-
-		// $this->add_control(
-		// 	'obpress_packages_card_button_hover_color',
-		// 	[
-		// 		'label' => __('Button Hover Color', 'OBPress_SpecialOffersList'),
-		// 		'type' => \Elementor\Controls_Manager::COLOR,
-		// 		'input_type' => 'color',
-		// 		'default' => '#FFF',
-		// 		'selectors' => [
-		// 			'.packages .package-button:hover' => 'color: {{obpress_packages_card_button_color}}'
-		// 		],
-		// 	]
-		// );
-
-		// $this->add_control(
-		// 	'obpress_packages_card_button_background_color',
-		// 	[
-		// 		'label' => __('Button Backgorund Color', 'OBPress_SpecialOffersList'),
-		// 		'type' => \Elementor\Controls_Manager::COLOR,
-		// 		'input_type' => 'color',
-		// 		'default' => '#000',
-		// 		'selectors' => [
-		// 			'.packages .package-button' => 'background-color: {{obpress_packages_card_button_color}}'
-		// 		],
-		// 	]
-		// );
-
-		// $this->add_control(
-		// 	'obpress_packages_card_button_hover_background_color',
-		// 	[
-		// 		'label' => __('Button Hover Background Color', 'OBPress_SpecialOffersList'),
-		// 		'type' => \Elementor\Controls_Manager::COLOR,
-		// 		'input_type' => 'color',
-		// 		'default' => '#000',
-		// 		'selectors' => [
-		// 			'.packages .package-button:hover' => 'background-color: {{obpress_packages_card_button_color}}'
-		// 		],
-		// 	]
-		// );
-
-		// $this->add_control(
-		// 	'obpress_packages_card_button_hover_Transition',
-		// 	[
-		// 		'label' => __( 'Button Transition Duration', 'OBPress_SpecialOffersList' ),
-		// 		'type' => \Elementor\Controls_Manager::SLIDER,
-		// 		'default' => [
-		// 			'size' => 0.3,
-		// 		],
-		// 		'range' => [
-		// 			'px' => [
-		// 				'max' => 3,
-		// 				'step' => 0.1,
-		// 			],
-		// 		],
-		// 		'render_type' => 'ui',
-		// 		'selectors' => [
-		// 			'{{WRAPPER}} .packages .package-button' => 'transition-duration: {{SIZE}}s',
-		// 		],
-		// 	]
-		// );
-
-		// $this->add_group_control(
-		// 	\Elementor\Group_Control_Typography::get_type(),
-		// 	[
-		// 		'name' => 'packages_button_typography',
-		// 		'label' => __('Button Typography', 'OBPress_SpecialOffersList'),
-		// 		'selector' => '.packages .package-button',
-		// 	]
-		// );
-
-		// $this->add_control(
-		// 	'obpress_packages_card_button_padding',
-		// 	[
-		// 		'label' => __( 'Button Padding', 'OBPress_SpecialOffersList' ),
-		// 		'type' => \Elementor\Controls_Manager::DIMENSIONS,
-		// 		'default' => [
-		// 			'top' => '11',
-		// 			'right' => '33',
-		// 			'bottom' => '11',
-		// 			'left' => '33',
-		// 			'isLinked' => false
-		// 		],
-		// 		'size_units' => [ 'px', '%', 'em' ],
-		// 		'selectors' => [
-		// 			'.packages .package-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-		// 		],
-		// 	]
-		// );
-
-		// $this->add_group_control(
-		// 	\Elementor\Group_Control_Border::get_type(),
-		// 	[
-		// 		'name' => 'border',
-		// 		'label' => esc_html__( 'Button Border', 'OBPress_SpecialOffersList' ),
-		// 		'selector' => '{{WRAPPER}} .packages .package-button',
-		// 	]
-		// );
-
-		// $this->add_control(
-		// 	'obpress_packages_card_button_border_radius',
-		// 	[
-		// 		'label' => __( 'Button Border Radius', 'OBPress_SpecialOffersList' ),
-		// 		'type' => \Elementor\Controls_Manager::DIMENSIONS,
-		// 		'default' => [
-		// 			'top' => '0',
-		// 			'right' => '0',
-		// 			'bottom' => '0',
-		// 			'left' => '0',
-		// 			'isLinked' => false
-		// 		],
-		// 		'size_units' => [ 'px', '%', 'em' ],
-		// 		'selectors' => [
-		// 			'.packages .package-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-		// 		],
-		// 	]
-		// );
+		$this->add_control(
+			'hotels_cards_info_section_hotel_name_text_align',
+			[
+				'label' => __( 'Hotel Name Text Align', 'OBPress_HotelsPage' ),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'default' => 'left',
+				'options' => [
+					'left'  => __( 'Left', 'OBPress_HotelsPage' ),
+					'center'  => __( 'Center', 'OBPress_HotelsPage' ),
+					'right'  => __( 'Right', 'OBPress_HotelsPage' ),
+				],
+				'selectors' => [
+					'.obpress-chain-results-hotels-page .obpress-hotels-name' => 'text-align: {{hotels_cards_info_section_hotel_name_text_align}}'
+				],
+			]
+		);
 
 
-		// $this->end_controls_section();
+		$this->add_control(
+			'hotels_cards_info_section_hotel_name_color',
+			[
+				'label' => __('Hotel Name Color', 'OBPress_HotelsPage'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#000',
+				'selectors' => [
+					'.obpress-chain-results-hotels-page .obpress-hotels-name' => 'color: {{hotels_cards_info_section_hotel_name_color}}'
+				],
+			]
+		);
 
+		$this->add_control(
+			'hotels_cards_info_section_hotel_name_margin',
+			[
+				'label' => __( 'Hotel Name Margin', 'OBPress_HotelsPage' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'default' => [
+					'top' => '0',
+					'right' => '0',
+					'bottom' => '8',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'size_units' => [ 'px', '%', 'em' ],
+				'selectors' => [
+					'.obpress-chain-results-hotels-page .obpress-hotels-name' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'hotels_cards_info_section_hotel_location_typography',
+				'label' => __('Hotel Location Typography', 'OBPress_HotelsPage'),
+				'selector' => '.obpress-chain-results-hotels-page .obpress-hotels-location',
+				'fields_options' => [
+					'typography' => [
+						'default' => 'yes'
+					],
+					'font_family' => [
+						'default' => 'Montserrat',
+					],
+					'font_size' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '12',
+						],
+					],
+					'font_weight' => [
+						'default' => '400',
+					],
+					'line_height' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '15',
+						],
+					],
+				],
+			]
+		);
+
+		$this->add_control(
+			'hotels_cards_info_section_hotel_location_text_align',
+			[
+				'label' => __( 'Hotel Location Text Align', 'OBPress_HotelsPage' ),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'default' => 'left',
+				'options' => [
+					'left'  => __( 'Left', 'OBPress_HotelsPage' ),
+					'center'  => __( 'Center', 'OBPress_HotelsPage' ),
+					'right'  => __( 'Right', 'OBPress_HotelsPage' ),
+				],
+				'selectors' => [
+					'.obpress-chain-results-hotels-page .obpress-hotels-location' => 'text-align: {{hotels_cards_info_section_hotel_location_text_align}}'
+				],
+			]
+		);
+
+
+		$this->add_control(
+			'hotels_cards_info_section_hotel_location_color',
+			[
+				'label' => __('Hotel Location Color', 'OBPress_HotelsPage'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#000',
+				'selectors' => [
+					'.obpress-chain-results-hotels-page .obpress-hotels-location' => 'color: {{hotels_cards_info_section_hotel_location_color}}'
+				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Border::get_type(),
+			[
+				'name' => 'hotels_cards_info_section_hotel_location_border',
+				'label' => __( 'Hotel Location Border', 'OBPress_HotelsPage' ),
+				'fields_options' => [
+					'border' => [
+						'default' => 'solid',
+					],
+					'width' => [
+						'default' => [
+							'top' => '0',
+							'right' => '0',
+							'bottom' => '1',
+							'left' => '0',
+							'isLinked' => false,
+						],
+					],
+					'color' => [
+						'default' => '#E6E6E6',
+					],
+				],
+				'selector' => '.obpress-chain-results-hotels-page .obpress-hotels-location',
+			]
+		);
+
+		$this->add_control(
+			'hotels_cards_info_section_hotel_name_padding',
+			[
+				'label' => __( 'Hotel Location Padding', 'OBPress_HotelsPage' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'default' => [
+					'top' => '0',
+					'right' => '0',
+					'bottom' => '10',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'size_units' => [ 'px', '%', 'em' ],
+				'selectors' => [
+					'.obpress-chain-results-hotels-page .obpress-hotels-location' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'hotels_cards_info_section_hotel_location_margin',
+			[
+				'label' => __( 'Hotel Location Margin', 'OBPress_HotelsPage' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'default' => [
+					'top' => '0',
+					'right' => '0',
+					'bottom' => '11',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'size_units' => [ 'px', '%', 'em' ],
+				'selectors' => [
+					'.obpress-chain-results-hotels-page .obpress-hotels-location' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'hotels_cards_info_section_hotel_description_typography',
+				'label' => __('Hotel Description Typography', 'OBPress_HotelsPage'),
+				'selector' => '.obpress-chain-results-hotels-page .obpress-hotel-text',
+				'fields_options' => [
+					'typography' => [
+						'default' => 'yes'
+					],
+					'font_family' => [
+						'default' => 'Montserrat',
+					],
+					'font_size' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '12',
+						],
+					],
+					'font_weight' => [
+						'default' => '400',
+					],
+					'line_height' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '15',
+						],
+					],
+				],
+			]
+		);
+
+		$this->add_control(
+			'hotels_cards_info_section_hotel_description_text_align',
+			[
+				'label' => __( 'Hotel Description Text Align', 'OBPress_HotelsPage' ),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'default' => 'left',
+				'options' => [
+					'left'  => __( 'Left', 'OBPress_HotelsPage' ),
+					'center'  => __( 'Center', 'OBPress_HotelsPage' ),
+					'right'  => __( 'Right', 'OBPress_HotelsPage' ),
+				],
+				'selectors' => [
+					'.obpress-chain-results-hotels-page .obpress-hotel-text' => 'text-align: {{hotels_cards_info_section_hotel_description_text_align}}'
+				],
+			]
+		);
+
+
+		$this->add_control(
+			'hotels_cards_info_section_hotel_description_color',
+			[
+				'label' => __('Hotel Description Color', 'OBPress_HotelsPage'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#212529',
+				'selectors' => [
+					'.obpress-chain-results-hotels-page .obpress-hotel-text' => 'color: {{hotels_cards_info_section_hotel_description_color}}'
+				],
+			]
+		);
+
+		$this->add_control(
+			'hotels_cards_info_section_hotel_description_margin',
+			[
+				'label' => __( 'Hotel Description Margin', 'OBPress_HotelsPage' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'default' => [
+					'top' => '0',
+					'right' => '0',
+					'bottom' => '16',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'size_units' => [ 'px', '%', 'em' ],
+				'selectors' => [
+					'.obpress-chain-results-hotels-page .obpress-hotel-text p' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'hotels_cards_info_section_hotel_description_seemore_typography',
+				'label' => __('Hotel See More Typography', 'OBPress_HotelsPage'),
+				'selector' => '.obpress-chain-results-hotels-page .obpress-hotels-see-more',
+				'fields_options' => [
+					'typography' => [
+						'default' => 'yes'
+					],
+					'font_family' => [
+						'default' => 'Montserrat',
+					],
+					'font_size' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '12',
+						],
+					],
+					'font_weight' => [
+						'default' => '400',
+					],
+					'line_height' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '15',
+						],
+					],
+				],
+			]
+		);
+
+		$this->add_control(
+			'hotels_cards_info_section_hotel_description_seemore_color',
+			[
+				'label' => __('Hotel See More Color', 'OBPress_HotelsPage'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#4B8CF4',
+				'selectors' => [
+					'.obpress-chain-results-hotels-page .obpress-hotels-see-more' => 'color: {{hotels_cards_info_section_hotel_description_seemore_color}}'
+				],
+			]
+		);
+
+		$this->add_control(
+			'hotels_cards_info_section_hotel_description_seemore_margin',
+			[
+				'label' => __( 'Hotel See More Margin', 'OBPress_HotelsPage' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'default' => [
+					'top' => '0',
+					'right' => '0',
+					'bottom' => '0',
+					'left' => '5',
+					'isLinked' => false
+				],
+				'size_units' => [ 'px', '%', 'em' ],
+				'selectors' => [
+					'.obpress-chain-results-hotels-page .obpress-hotels-see-more' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->end_controls_section();
+
+		$this->start_controls_section(
+			'hotels_info_button_section',
+			[
+				'label' => __(' Button Section', 'OBPress_HotelsPage'),
+				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
+			]
+		);
+
+		$this->add_control(
+			'hotels_custom_button_width',
+			[
+				'label' => esc_html__( 'Custom Width', 'OBPress_HotelsPage' ),
+				'type' => \Elementor\Controls_Manager::SWITCHER,
+				'label_on' => esc_html__( 'Show', 'OBPress_HotelsPage' ),
+				'label_off' => esc_html__( 'Hide', 'OBPress_HotelsPage' ),
+				'return_value' => 'custom_width',
+				'default' => '',
+			]
+		);
+
+		$this->add_control(
+			'hotels_custom_button_width_slider',
+			[
+				'label' => esc_html__( 'Width', 'OBPress_HotelsPage' ),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'size_units' => [ '%' ],
+				'range' => [
+					'px' => [
+						'min' => 20,
+						'max' => 100,
+						'step' => 1,
+					],
+				],
+				'default' => [
+					'unit' => '%',
+					'size' => 24,
+				],
+				'selectors' => [
+					'.obpress-chain-results-hotels-page .obpress-hotels-button' => 'width: {{SIZE}}%',
+				],
+				'condition' => [
+					'hotels_custom_button_width' => 'custom_width',
+				],	
+			]
+		);
+
+		$this->add_control(
+			'hotels_button_justify_content',
+			[
+				'label' => __( 'Justify Content', 'OBPress_HotelsPage' ),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'default' => 'flex-end',
+				'options' => [
+					'flex-start'  => __( 'Left', 'OBPress_HotelsPage' ),
+					'center' => __( 'Center', 'OBPress_HotelsPage' ),
+					'flex-end'  => __( 'Right', 'OBPress_HotelsPage' ),
+				],
+				'selectors' => [
+					'.obpress-chain-results-hotels-page .obpress-hotels-button-text-holder' => 'justify-content: {{hotels_button_justify_content}}'
+				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'hotels_button_typography',
+				'label' => __('Typography', 'OBPress_HotelsPage'),
+				'selector' => '.obpress-chain-results-hotels-page .obpress-hotels-button-text-holder',
+				'fields_options' => [
+					'typography' => [
+						'default' => 'yes'
+					],
+					'font_family' => [
+						'default' => 'Montserrat',
+					],
+					'font_size' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '14',
+						],
+					],
+					'font_weight' => [
+						'default' => '500',
+					],
+				],
+			]
+		);
+
+		$this->add_control(
+			'hotels_button_color',
+			[
+				'label' => __('Color', 'OBPress_HotelsPage'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#fff',
+				'selectors' => [
+					'.obpress-chain-results-hotels-page .obpress-hotels-button' => 'color: {{hotels_button_color}}'
+				],
+			]
+		);
+
+		$this->add_control(
+			'hotels_button_hover_color',
+			[
+				'label' => __('Hover Color', 'OBPress_HotelsPage'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#fff',
+				'selectors' => [
+					'.obpress-chain-results-hotels-page .obpress-hotels-button:hover' => 'color: {{hotels_button_hover_color}}'
+				],
+			]
+		);
+
+		$this->add_control(
+			'hotels_button_bg_color',
+			[
+				'label' => __('Background Color', 'OBPress_HotelsPage'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#000',
+				'selectors' => [
+					'.obpress-chain-results-hotels-page .obpress-hotels-button' => 'background-color: {{hotels_button_bg_color}}'
+				],
+			]
+		);
+
+		$this->add_control(
+			'hotels_button_bg_hover_color',
+			[
+				'label' => __('Background Hover Color', 'OBPress_HotelsPage'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#000',
+				'selectors' => [
+					'.obpress-chain-results-hotels-page .obpress-hotels-button:hover' => 'background-color: {{hotels_button_bg_hover_color}}'
+				],
+			]
+		);
+
+		$this->add_control(
+			'hotels_button_hover_transition',
+			[
+				'label' => __( 'Transition', 'OBPress_HotelsPage' ),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'default' => [
+					'size' => 0.3,
+				],
+				'range' => [
+					'px' => [
+						'max' => 3,
+						'step' => 0.1,
+					],
+				],
+				'render_type' => 'ui',
+				'selectors' => [
+					'.obpress-chain-results-hotels-page .obpress-hotels-button' => 'transition: {{SIZE}}s',
+				],
+			]
+		);
+
+		$this->add_control(
+			'hotels_button_padding',
+			[
+				'label' => __( 'Padding', 'OBPress_HotelsPage' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'default' => [
+					'top' => '11',
+					'right' => '10',
+					'bottom' => '11',
+					'left' => '10',
+					'isLinked' => false
+				],
+				'size_units' => [ 'px', '%', 'em' ],
+				'selectors' => [
+					'.obpress-chain-results-hotels-page .obpress-hotels-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->end_controls_section();
 	}
 
 	protected function render()
 	{
+		$settings_hp = $this->get_settings_for_display();
 
 		if (get_option('obpress_api_set') == true) {
 

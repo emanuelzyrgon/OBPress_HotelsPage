@@ -1,10 +1,10 @@
 <div class="obpress-chain-results-hotels-page">
     <div class="obpress-search-header-hotels">
         <div class="obpress-search-title">
-            Hotels & Destinations
+            <?php _e('Hotels & Destinations', 'OBPress_HotelsPage') ?>
         </div>
         <div>
-            <input type="text" id="search-input" placeholder="Search by keyword, hotel or destination" class="btn-ic">			
+            <input type="text" id="search-input" placeholder="<?php _e('Search by keyword, hotel or destination', 'OBPress_HotelsPage') ?>" class="btn-ic">			
         </div>
     </div>
     <?php if ($folders == null) : ?>
@@ -31,7 +31,7 @@
                             </div>
                             <div class="obpress-hotels-cards-holder">
                                 <?php foreach ($HotelsByCity as $hotel) : ?>
-                                    <div class="obpress-hotels-results-roomrate roomrate">
+                                    <div class="obpress-hotels-results-roomrate roomrate <?= $settings_hp['hotels_cards_side']; ?>">
                                         <div class="obpress-hotels-results-hotel-image">
                                             <?php if ($hotel->ImageURL != null) : ?>
                                                 <img src="<?= $hotel->ImageURL; ?>" alt="<?= $hotel->HotelRef->HotelName; ?>" class="card-img-top">
@@ -48,7 +48,7 @@
                                             }
                                             ?>
                                         </div>
-                                        <div class="obpress-chain-results-hotel-info">
+                                        <div class="obpress-chain-results-hotel-info <?= $settings_hp['hotels_cards_side']; ?>">
                                             <span class="hotel_stars">
                                                 <?php if (isset($hotel->Award)) : ?>
                                                     <?php for ($i = 0; $i < $hotel->Award->Rating; $i++) : ?>
@@ -68,7 +68,7 @@
                                                 <?php if($hotel_description != '') : ?>
                                                     <p class="obpress-hotels-short-description">
                                                         <?= substr($hotel_description, 0, 140) . '...' ?>
-                                                        <a href="<?= home_url($path='/hotel-results/?q=' . $hotel->HotelRef->HotelCode); ?>" class="obpress-hotels-see-more" target="_blank">see more</a>
+                                                        <a href="<?= home_url($path='/hotel-results/?q=' . $hotel->HotelRef->HotelCode); ?>" class="obpress-hotels-see-more" target="_blank"><?php _e('see more', 'OBPress_HotelsPage') ?></a>
                                                     </p>
                                                 <?php endif; ?>
                                             </div>
@@ -76,12 +76,12 @@
                                                 <?php if($hotel_description != '') : ?>
                                                     <p class="obpress-hotels-short-description">
                                                         <?= substr($hotel_description, 0, 60) . '...' ?>
-                                                        <a href="<?= home_url($path='/hotel-results/?q=' . $hotel->HotelRef->HotelCode); ?>" class="obpress-hotels-see-more" target="_blank">see more</a>
+                                                        <a href="<?= home_url($path='/hotel-results/?q=' . $hotel->HotelRef->HotelCode); ?>" class="obpress-hotels-see-more" target="_blank"><?php _e('see more', 'OBPress_HotelsPage') ?></a>
                                                     </p>
                                                 <?php endif; ?>
                                             </div>
                                             <div class="obpress-hotels-button-text-holder">
-                                                <a href="<?= home_url($path='/hotel-results/?q=' . $hotel->HotelRef->HotelCode); ?>" class="obpress-hotels-button obpress-primary-btn" target="_blank">DISCOVER</a>
+                                                <a href="<?= home_url($path='/hotel-results/?q=' . $hotel->HotelRef->HotelCode); ?>" class="obpress-hotels-button obpress-primary-btn <?= $settings_hp['hotels_custom_button_width'] ?>" target="_blank"><?php _e('DISCOVER', 'OBPress_HotelsPage') ?></a>
                                             </div>
                                         </div>
                                     </div>
@@ -109,7 +109,7 @@
                             <?php 
                                 $hotel = $hotel_from_folder->descriptive_content;    
                             ?>
-                            <div class="obpress-hotels-results-roomrate roomrate">
+                            <div class="obpress-hotels-results-roomrate roomrate <?= $settings_hp['hotels_cards_side']; ?>">
                                 <div class="obpress-hotels-results-hotel-image">
                                     <?php if ($hotel->ImageURL != null) : ?>
                                         <img src="<?= $hotel->ImageURL; ?>" alt="<?= $hotel->HotelRef->HotelName; ?>" class="card-img-top">
@@ -126,7 +126,7 @@
                                     }
                                     ?>
                                 </div>
-                                <div class="obpress-chain-results-hotel-info">
+                                <div class="obpress-chain-results-hotel-info <?= $settings_hp['hotels_cards_side']; ?>">
                                     <span class="hotel_stars">
                                         <?php if (isset($hotel->Award)) : ?>
                                             <?php for ($i = 0; $i < $hotel->Award->Rating; $i++) : ?>
@@ -146,7 +146,7 @@
                                         <?php if($hotel_description != '') : ?>
                                             <p class="obpress-hotels-short-description">
                                                 <?= substr($hotel_description, 0, 140) . '...' ?>
-                                                <a href="<?= home_url($path='/hotel-results/?q=' . $hotel->HotelRef->HotelCode); ?>" class="obpress-hotels-see-more" target="_blank">see more</a>
+                                                <a href="<?= home_url($path='/hotel-results/?q=' . $hotel->HotelRef->HotelCode); ?>" class="obpress-hotels-see-more" target="_blank"><?php _e('see more', 'OBPress_HotelsPage') ?></a>
                                             </p>
                                         <?php endif; ?>
                                     </div>
@@ -154,12 +154,12 @@
                                         <?php if($hotel_description != '') : ?>
                                             <p class="obpress-hotels-short-description">
                                                 <?= substr($hotel_description, 0, 60) . '...' ?>
-                                                <a href="<?= home_url($path='/hotel-results/?q=' . $hotel->HotelRef->HotelCode); ?>" class="obpress-hotels-see-more" target="_blank">see more</a>
+                                                <a href="<?= home_url($path='/hotel-results/?q=' . $hotel->HotelRef->HotelCode); ?>" class="obpress-hotels-see-more" target="_blank"><?php _e('see more', 'OBPress_HotelsPage') ?></a>
                                             </p>
                                         <?php endif; ?>
                                     </div>
                                     <div class="obpress-hotels-button-text-holder">
-                                        <a href="<?= home_url($path='/hotel-results/?q=' . $hotel->HotelRef->HotelCode); ?>" class="obpress-hotels-button obpress-primary-btn" target="_blank">DISCOVER</a>
+                                        <a href="<?= home_url($path='/hotel-results/?q=' . $hotel->HotelRef->HotelCode); ?>" class="obpress-hotels-button obpress-primary-btn <?= $settings_hp['hotels_custom_button_width']; ?>" target="_blank"><?php _e('DISCOVER', 'OBPress_HotelsPage') ?></a>
                                     </div>
                                 </div>
                             </div>
@@ -170,7 +170,7 @@
         <?php endforeach; ?>
     <?php endif; ?>
     <div class="obpress-hotels-no-results s-none">
-        <img src="<?= plugin_dir_url( __DIR__ ) . '/images/not_found.svg' ?>" alt="No results found" class="obpress-hotels-no-results-img">			
-        <p class="obpress-hotels-no-results-text">No results found</p>
+        <img src="<?= plugin_dir_url( __DIR__ ) . '/images/not_found.svg' ?>" alt="<?php _e('No results found', 'OBPress_HotelsPage') ?>" class="obpress-hotels-no-results-img">
+        <p class="obpress-hotels-no-results-text"><?php _e('No results found', 'OBPress_HotelsPage') ?></p>
     </div>
 </div>
