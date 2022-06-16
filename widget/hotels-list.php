@@ -287,6 +287,33 @@ class HotelsPage extends \Elementor\Widget_Base
 			]
 		);
 
+		$this->add_group_control(
+			\Elementor\Group_Control_Border::get_type(),
+			[
+				'name' => 'hotels_search_section_search_input_border',
+				'label' => __( 'Search Input Border', 'OBPress_HotelsPage' ),
+				'fields_options' => [
+					'border' => [
+						'default' => 'solid',
+					],
+					'width' => [
+						'default' => [
+							'top' => '1',
+							'right' => '1',
+							'bottom' => '1',
+							'left' => '1',
+							'isLinked' => true,
+						],
+					],
+					'color' => [
+						'default' => '#8c99af',
+					],
+				],
+				'selector' => '.obpress-chain-results-hotels-page #search-input',
+			]
+		);
+
+
 		$this->end_controls_section();
 
 		$this->start_controls_section(
