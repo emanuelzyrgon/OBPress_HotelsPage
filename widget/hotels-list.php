@@ -53,20 +53,24 @@ class HotelsPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'hotels_search_section_height',
 			[
 				'label' => __( 'Height', 'OBPress_HotelsPage' ),
 				'type' => \Elementor\Controls_Manager::SLIDER,
-				'default' => [
-					'size' => 197,
-				],
 				'range' => [
 					'px' => [
 						'max' => 400,
 						'min' => 50,
 						'step' => 1,
 					],
+				],
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'size' => 197,
+				],
+				'mobile_default' => [
+					'size' => 197,
 				],
 				'render_type' => 'ui',
 				'selectors' => [
@@ -75,12 +79,20 @@ class HotelsPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'hotels_search_section_padding',
 			[
 				'label' => __( 'Padding', 'OBPress_HotelsPage' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'top' => '50',
+					'right' => '0',
+					'bottom' => '0',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'mobile_default' => [
 					'top' => '50',
 					'right' => '0',
 					'bottom' => '0',
@@ -156,12 +168,20 @@ class HotelsPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'hotels_search_section_title_margin',
 			[
 				'label' => __( 'Title Margin', 'OBPress_HotelsPage' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'top' => '0',
+					'right' => '0',
+					'bottom' => '20',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'mobile_default' => [
 					'top' => '0',
 					'right' => '0',
 					'bottom' => '20',
@@ -175,12 +195,16 @@ class HotelsPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'hotels_search_section_search_input_width',
 			[
 				'label' => __( 'Search Input Width', 'OBPress_HotelsPage' ),
 				'type' => \Elementor\Controls_Manager::SLIDER,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'size' => 500,
+				],
+				'mobile_default' => [
 					'size' => 500,
 				],
 				'range' => [
@@ -197,12 +221,16 @@ class HotelsPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'hotels_search_section_search_input_height',
 			[
 				'label' => __( 'Search Input Height', 'OBPress_HotelsPage' ),
 				'type' => \Elementor\Controls_Manager::SLIDER,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'size' => 42,
+				],
+				'mobile_default' => [
 					'size' => 42,
 				],
 				'range' => [
@@ -219,12 +247,20 @@ class HotelsPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'hotels_search_section_search_input_padding',
 			[
 				'label' => __( 'Search Input Padding', 'OBPress_HotelsPage' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'top' => '10',
+					'right' => '13',
+					'bottom' => '10',
+					'left' => '13',
+					'isLinked' => false
+				],
+				'mobile_default' => [
 					'top' => '10',
 					'right' => '13',
 					'bottom' => '10',
@@ -261,12 +297,20 @@ class HotelsPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'hotels_cards_margin',
 			[
 				'label' => __( 'Hotels Cards Margin', 'OBPress_HotelsPage' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'top' => '0',
+					'right' => '0',
+					'bottom' => '38',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'mobile_default' => [
 					'top' => '0',
 					'right' => '0',
 					'bottom' => '38',
@@ -280,12 +324,20 @@ class HotelsPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'hotels_last_card_margin',
 			[
 				'label' => __( 'Hotels Last Card Margin', 'OBPress_HotelsPage' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'top' => '0',
+					'right' => '0',
+					'bottom' => '58',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'mobile_default' => [
 					'top' => '0',
 					'right' => '0',
 					'bottom' => '58',
@@ -299,12 +351,20 @@ class HotelsPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'hotels_cards_title_margin',
 			[
 				'label' => __( 'Hotels Title Margin', 'OBPress_HotelsPage' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'top' => '0',
+					'right' => '0',
+					'bottom' => '23',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'mobile_default' => [
 					'top' => '0',
 					'right' => '0',
 					'bottom' => '23',
@@ -408,12 +468,16 @@ class HotelsPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'hotels_cards_title_line_width',
 			[
 				'label' => __( 'Hotels Line Width', 'OBPress_HotelsPage' ),
 				'type' => \Elementor\Controls_Manager::SLIDER,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'size' => 100,
+				],
+				'mobile_default' => [
 					'size' => 100,
 				],
 				'range' => [
@@ -430,12 +494,16 @@ class HotelsPage extends \Elementor\Widget_Base
 			]
 		);
 		
-		$this->add_control(
+		$this->add_responsive_control(
 			'hotels_cards_title_line_height',
 			[
 				'label' => __( 'Hotels Line Height', 'OBPress_HotelsPage' ),
 				'type' => \Elementor\Controls_Manager::SLIDER,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'size' => 1,
+				],
+				'mobile_default' => [
 					'size' => 1,
 				],
 				'range' => [
@@ -465,12 +533,20 @@ class HotelsPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'hotels_cards_title_line_margin',
 			[
 				'label' => __( 'Hotels Line Margin', 'OBPress_HotelsPage' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'top' => '0',
+					'right' => '0',
+					'bottom' => '0',
+					'left' => '23',
+					'isLinked' => false
+				],
+				'mobile_default' => [
 					'top' => '0',
 					'right' => '0',
 					'bottom' => '0',
@@ -484,12 +560,14 @@ class HotelsPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'hotels_cards_title_justify_content',
 			[
 				'label' => __( 'Hotels Title Justify Content', 'OBPress_HotelsPage' ),
 				'type' => \Elementor\Controls_Manager::SELECT,
-				'default' => 'center',
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => 'center',
+				'mobile_default' => 'center',
 				'options' => [
 					'space-between'  => __( 'Space Between', 'OBPress_HotelsPage' ),
 					'space-around'  => __( 'Space Around', 'OBPress_HotelsPage' ),
@@ -504,12 +582,14 @@ class HotelsPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'hotels_cards_side',
 			[
 				'label' => __( 'Hotels Cards Side', 'OBPress_HotelsPage' ),
 				'type' => \Elementor\Controls_Manager::SELECT,
-				'default' => 'right',
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => 'right',
+				'mobile_default' => 'right',
 				'options' => [
 					'left'  => __( 'Left', 'OBPress_HotelsPage' ),
 					'right'  => __( 'Right', 'OBPress_HotelsPage' ),
@@ -517,12 +597,16 @@ class HotelsPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'hotels_cards_image_width',
 			[
 				'label' => __( 'Image Width', 'OBPress_HotelsPage' ),
 				'type' => \Elementor\Controls_Manager::SLIDER,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'size' => 669,
+				],
+				'mobile_default' => [
 					'size' => 669,
 				],
 				'range' => [
@@ -539,12 +623,16 @@ class HotelsPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'hotels_cards_image_height',
 			[
 				'label' => __( 'Image Height', 'OBPress_HotelsPage' ),
 				'type' => \Elementor\Controls_Manager::SLIDER,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'size' => 393,
+				],
+				'mobile_default' => [
 					'size' => 393,
 				],
 				'range' => [
@@ -571,12 +659,16 @@ class HotelsPage extends \Elementor\Widget_Base
 			]
 		);
 		
-		$this->add_control(
+		$this->add_responsive_control(
 			'hotels_cards_info_section_width',
 			[
 				'label' => __( 'Info Width', 'OBPress_HotelsPage' ),
 				'type' => \Elementor\Controls_Manager::SLIDER,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'size' => 466,
+				],
+				'mobile_default' => [
 					'size' => 466,
 				],
 				'range' => [
@@ -628,12 +720,20 @@ class HotelsPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'hotels_cards_info_section_padding',
 			[
 				'label' => __( 'Padding', 'OBPress_HotelsPage' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'top' => '20',
+					'right' => '21',
+					'bottom' => '21',
+					'left' => '21',
+					'isLinked' => false
+				],
+				'mobile_default' => [
 					'top' => '20',
 					'right' => '21',
 					'bottom' => '21',
@@ -647,12 +747,14 @@ class HotelsPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'hotels_cards_info_section_stars_justify_content',
 			[
 				'label' => __( 'Stars Justify Content', 'OBPress_HotelsPage' ),
 				'type' => \Elementor\Controls_Manager::SELECT,
-				'default' => 'flex-start',
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => 'flex-start',
+				'mobile_default' => 'flex-start',
 				'options' => [
 					'flex-start'  => __( 'Left', 'OBPress_HotelsPage' ),
 					'center' => __( 'Center', 'OBPress_HotelsPage' ),
@@ -679,12 +781,20 @@ class HotelsPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'hotels_cards_info_section_stars_margin',
 			[
 				'label' => __( 'Stars Margin', 'OBPress_HotelsPage' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'top' => '0',
+					'right' => '0',
+					'bottom' => '5',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'mobile_default' => [
 					'top' => '0',
 					'right' => '0',
 					'bottom' => '5',
@@ -698,12 +808,20 @@ class HotelsPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'hotels_cards_info_section_star_margin',
 			[
 				'label' => __( 'Star Margin', 'OBPress_HotelsPage' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'top' => '0',
+					'right' => '5',
+					'bottom' => '0',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'mobile_default' => [
 					'top' => '0',
 					'right' => '5',
 					'bottom' => '0',
@@ -749,12 +867,14 @@ class HotelsPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'hotels_cards_info_section_hotel_name_text_align',
 			[
 				'label' => __( 'Hotel Name Text Align', 'OBPress_HotelsPage' ),
 				'type' => \Elementor\Controls_Manager::SELECT,
-				'default' => 'left',
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => 'left',
+				'mobile_default' => 'left',
 				'options' => [
 					'left'  => __( 'Left', 'OBPress_HotelsPage' ),
 					'center'  => __( 'Center', 'OBPress_HotelsPage' ),
@@ -780,12 +900,20 @@ class HotelsPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'hotels_cards_info_section_hotel_name_margin',
 			[
 				'label' => __( 'Hotel Name Margin', 'OBPress_HotelsPage' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'top' => '0',
+					'right' => '0',
+					'bottom' => '8',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'mobile_default' => [
 					'top' => '0',
 					'right' => '0',
 					'bottom' => '8',
@@ -831,12 +959,14 @@ class HotelsPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'hotels_cards_info_section_hotel_location_text_align',
 			[
 				'label' => __( 'Hotel Location Text Align', 'OBPress_HotelsPage' ),
 				'type' => \Elementor\Controls_Manager::SELECT,
-				'default' => 'left',
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => 'left',
+				'mobile_default' => 'left',
 				'options' => [
 					'left'  => __( 'Left', 'OBPress_HotelsPage' ),
 					'center'  => __( 'Center', 'OBPress_HotelsPage' ),
@@ -888,12 +1018,20 @@ class HotelsPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'hotels_cards_info_section_hotel_name_padding',
 			[
 				'label' => __( 'Hotel Location Padding', 'OBPress_HotelsPage' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'top' => '0',
+					'right' => '0',
+					'bottom' => '10',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'mobile_default' => [
 					'top' => '0',
 					'right' => '0',
 					'bottom' => '10',
@@ -907,12 +1045,20 @@ class HotelsPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'hotels_cards_info_section_hotel_location_margin',
 			[
 				'label' => __( 'Hotel Location Margin', 'OBPress_HotelsPage' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'top' => '0',
+					'right' => '0',
+					'bottom' => '11',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'mobile_default' => [
 					'top' => '0',
 					'right' => '0',
 					'bottom' => '11',
@@ -958,12 +1104,14 @@ class HotelsPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'hotels_cards_info_section_hotel_description_text_align',
 			[
 				'label' => __( 'Hotel Description Text Align', 'OBPress_HotelsPage' ),
 				'type' => \Elementor\Controls_Manager::SELECT,
-				'default' => 'left',
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => 'left',
+				'mobile_default' => 'left',
 				'options' => [
 					'left'  => __( 'Left', 'OBPress_HotelsPage' ),
 					'center'  => __( 'Center', 'OBPress_HotelsPage' ),
@@ -989,12 +1137,20 @@ class HotelsPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'hotels_cards_info_section_hotel_description_margin',
 			[
 				'label' => __( 'Hotel Description Margin', 'OBPress_HotelsPage' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'top' => '0',
+					'right' => '0',
+					'bottom' => '16',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'mobile_default' => [
 					'top' => '0',
 					'right' => '0',
 					'bottom' => '16',
@@ -1053,12 +1209,20 @@ class HotelsPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'hotels_cards_info_section_hotel_description_seemore_margin',
 			[
 				'label' => __( 'Hotel See More Margin', 'OBPress_HotelsPage' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'top' => '0',
+					'right' => '0',
+					'bottom' => '0',
+					'left' => '5',
+					'isLinked' => false
+				],
+				'mobile_default' => [
 					'top' => '0',
 					'right' => '0',
 					'bottom' => '0',
@@ -1094,7 +1258,7 @@ class HotelsPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'hotels_custom_button_width_slider',
 			[
 				'label' => esc_html__( 'Width', 'OBPress_HotelsPage' ),
@@ -1107,7 +1271,12 @@ class HotelsPage extends \Elementor\Widget_Base
 						'step' => 1,
 					],
 				],
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'unit' => '%',
+					'size' => 24,
+				],
+				'mobile_default' => [
 					'unit' => '%',
 					'size' => 24,
 				],
@@ -1120,12 +1289,14 @@ class HotelsPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'hotels_button_justify_content',
 			[
 				'label' => __( 'Justify Content', 'OBPress_HotelsPage' ),
 				'type' => \Elementor\Controls_Manager::SELECT,
-				'default' => 'flex-end',
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => 'flex-end',
+				'mobile_default' => 'flex-end',
 				'options' => [
 					'flex-start'  => __( 'Left', 'OBPress_HotelsPage' ),
 					'center' => __( 'Center', 'OBPress_HotelsPage' ),
@@ -1236,12 +1407,20 @@ class HotelsPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'hotels_button_padding',
 			[
 				'label' => __( 'Padding', 'OBPress_HotelsPage' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'top' => '11',
+					'right' => '10',
+					'bottom' => '11',
+					'left' => '10',
+					'isLinked' => false
+				],
+				'mobile_default' => [
 					'top' => '11',
 					'right' => '10',
 					'bottom' => '11',
