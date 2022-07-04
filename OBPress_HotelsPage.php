@@ -15,7 +15,11 @@ if (get_option('obpress_api_set') == true) {
   require_once('elementor/init.php');
 }
 
-
+add_action( 'init', 'obpress_hotelspage_load_textdomain' );
+ 
+function obpress_hotelspage_load_textdomain() {
+    load_plugin_textdomain( 'OBPress_HotelsPage', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' ); 
+}
 
 require_once(WP_PLUGIN_DIR . '/OBPress_HotelsPage/plugin-update-checker-4.11/plugin-update-checker.php');
 $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
