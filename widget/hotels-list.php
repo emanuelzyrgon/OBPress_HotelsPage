@@ -70,7 +70,7 @@ class HotelsPage extends \Elementor\Widget_Base
 					'size' => 197,
 				],
 				'mobile_default' => [
-					'size' => 197,
+					'size' => 137,
 				],
 				'render_type' => 'ui',
 				'selectors' => [
@@ -93,7 +93,7 @@ class HotelsPage extends \Elementor\Widget_Base
 					'isLinked' => false
 				],
 				'mobile_default' => [
-					'top' => '50',
+					'top' => '25',
 					'right' => '0',
 					'bottom' => '0',
 					'left' => '0',
@@ -184,7 +184,7 @@ class HotelsPage extends \Elementor\Widget_Base
 				'mobile_default' => [
 					'top' => '0',
 					'right' => '0',
-					'bottom' => '20',
+					'bottom' => '10',
 					'left' => '0',
 					'isLinked' => false
 				],
@@ -205,7 +205,7 @@ class HotelsPage extends \Elementor\Widget_Base
 					'size' => 500,
 				],
 				'mobile_default' => [
-					'size' => 500,
+					'size' => 340,
 				],
 				'range' => [
 					'px' => [
@@ -634,7 +634,7 @@ class HotelsPage extends \Elementor\Widget_Base
 					'size' => 669,
 				],
 				'mobile_default' => [
-					'size' => 669,
+					'size' => 323,
 				],
 				'range' => [
 					'px' => [
@@ -660,7 +660,7 @@ class HotelsPage extends \Elementor\Widget_Base
 					'size' => 393,
 				],
 				'mobile_default' => [
-					'size' => 393,
+					'size' => 227,
 				],
 				'range' => [
 					'px' => [
@@ -696,7 +696,7 @@ class HotelsPage extends \Elementor\Widget_Base
 					'size' => 466,
 				],
 				'mobile_default' => [
-					'size' => 466,
+					'size' => 323,
 				],
 				'range' => [
 					'px' => [
@@ -761,10 +761,10 @@ class HotelsPage extends \Elementor\Widget_Base
 					'isLinked' => false
 				],
 				'mobile_default' => [
-					'top' => '20',
-					'right' => '21',
-					'bottom' => '21',
-					'left' => '21',
+					'top' => '17',
+					'right' => '22',
+					'bottom' => '23',
+					'left' => '22',
 					'isLinked' => false
 				],
 				'size_units' => [ 'px', '%', 'em' ],

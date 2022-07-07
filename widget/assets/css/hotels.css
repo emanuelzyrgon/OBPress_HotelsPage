@@ -253,6 +253,10 @@ body {
         margin-right: 5px;
     }
 
+    .obpress-hotels-holder {
+        padding-left: 15px;
+    }
+
     .obpress-chain-results-hotels-page {
         max-width: unset;
     }
