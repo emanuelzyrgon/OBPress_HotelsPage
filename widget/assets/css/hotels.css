@@ -141,7 +141,7 @@ body {
 }
 
 .obpress-hotels-button {
-    padding: 11px 10px;
+    padding: 10px 9px;
     background-color: #000000;
     color: #fff;
     font-size: 14px;
@@ -149,6 +149,7 @@ body {
     border-width: 0px;
     text-decoration: none;
     text-align: center;
+    border: 1px solid #000000;
 }
 
 .obpress-hotels-button.custom_width {
@@ -156,7 +157,9 @@ body {
 }
 
 .obpress-hotels-button:hover {
-    color: #fff;
+    color: #191919;
+    background-color: #FFFFFF;
+    border: 1px solid #191919;
 }
 
 .obpress-search-header-hotels {

@@ -1380,7 +1380,7 @@ class HotelsPage extends \Elementor\Widget_Base
 				'label' => __('Hover Color', 'OBPress_HotelsPage'),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'input_type' => 'color',
-				'default' => '#fff',
+				'default' => '#191919',
 				'selectors' => [
 					'.obpress-chain-results-hotels-page .obpress-hotels-button:hover' => 'color: {{hotels_button_hover_color}}'
 				],
@@ -1406,9 +1406,35 @@ class HotelsPage extends \Elementor\Widget_Base
 				'label' => __('Background Hover Color', 'OBPress_HotelsPage'),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'input_type' => 'color',
-				'default' => '#000',
+				'default' => '#FFFFFF',
 				'selectors' => [
 					'.obpress-chain-results-hotels-page .obpress-hotels-button:hover' => 'background-color: {{hotels_button_bg_hover_color}}'
+				],
+			]
+		);
+
+		$this->add_control(
+			'hotels_button_border_color',
+			[
+				'label' => __('Border Color', 'OBPress_HotelsPage'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#000',
+				'selectors' => [
+					'.obpress-chain-results-hotels-page .obpress-hotels-button' => 'border-color: {{hotels_button_border_color}}'
+				],
+			]
+		);
+
+		$this->add_control(
+			'hotels_button_border_hover_color',
+			[
+				'label' => __('Border Hover Color', 'OBPress_HotelsPage'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#191919',
+				'selectors' => [
+					'.obpress-chain-results-hotels-page .obpress-hotels-button:hover' => 'border-color: {{hotels_button_border_hover_color}}'
 				],
 			]
 		);
@@ -1441,17 +1467,17 @@ class HotelsPage extends \Elementor\Widget_Base
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'devices' => [ 'desktop', 'mobile' ],
 				'desktop_default' => [
-					'top' => '11',
-					'right' => '10',
-					'bottom' => '11',
-					'left' => '10',
+					'top' => '10',
+					'right' => '9',
+					'bottom' => '10',
+					'left' => '9',
 					'isLinked' => false
 				],
 				'mobile_default' => [
-					'top' => '11',
-					'right' => '10',
-					'bottom' => '11',
-					'left' => '10',
+					'top' => '10',
+					'right' => '9',
+					'bottom' => '10',
+					'left' => '9',
 					'isLinked' => false
 				],
 				'size_units' => [ 'px', '%', 'em' ],
