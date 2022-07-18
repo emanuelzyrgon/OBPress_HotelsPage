@@ -193,6 +193,37 @@ body {
     background-position-x: right;
     background-position-y: center;
     background-origin: content-box;
+    border-color: #8c99af;
+}
+
+
+#search-input:hover {
+    border: 1px solid #191919;
+}
+
+#search-input:hover::placeholder {
+    color: #191919;
+    opacity: 1;
+}
+
+#search-input:hover:-ms-input-placeholder {
+    color: #191919;
+}
+
+#search-input:hover::-ms-input-placeholder {
+    color: #191919;
+}
+
+#search-input:focus {
+    box-shadow: none !important;
+    border: 1px solid #191919;
+    outline: none;
+}
+
+#search-input:active {
+    box-shadow: none !important;
+    border: 1px solid #191919;
+    outline: none;
 }
 
 .obpress-hotels-no-results {
